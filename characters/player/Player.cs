@@ -5,6 +5,13 @@ namespace ADKR.Game
 {
     public partial class Player : Character
     {
+
+        public override void _Ready()
+        {
+            base._Ready();
+			State = new PlayerIdleState();
+        }
+
         public override void _Process(double delta)
         {
             base._Process(delta);
