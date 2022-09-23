@@ -7,7 +7,24 @@ namespace ADKR.Game
     {
         public float RunSpeed { get; set; } = 64f;
 
-        public CharacterState State { get; set; }
+        private CharacterState _state;
+        public CharacterState State
+        {
+            get => _state;
+            set
+            {
+                _state?.End();
+                _state = value;
+                _state.SetCharacter(this);
+                _state?.Start();
+            }
+        }
+
+        public override void _Process(double delta)
+        {
+            base._Process(delta);
+            State?.Update(delta);
+        }
 
     }
 }
