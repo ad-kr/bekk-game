@@ -15,7 +15,9 @@ namespace ADKR.Game
         public override void Start()
         {
             base.Start();
-            Character.Sprite.FlipH = IsFlipped(_startDir);
+
+            SetPlayerFlip(_startDir);
+
             Character.Sprite.Frame = 1;
             Character.Sprite.Playing = true;
         }
@@ -32,7 +34,8 @@ namespace ADKR.Game
                 return;
             }
 
-            Character.Sprite.FlipH = IsFlipped(dir);
+            SetPlayerFlip(dir);
+
             Character.Velocity = dir * Character.RunSpeed;
 
             Character.MoveAndSlide();
@@ -50,6 +53,14 @@ namespace ADKR.Game
             if (dir.x == 0) return Character.Sprite.FlipH;
             if (dir.x > 0f) return false;
             return true;
+        }
+
+        private void SetPlayerFlip(Vector2 dir)
+        {
+            bool isFlipped = IsFlipped(dir);
+            Character.Sprite.FlipH = isFlipped;
+            Character.TopHand.IsFlipped = isFlipped;
+            Character.BottomHand.IsFlipped = isFlipped;
         }
     }
 }
