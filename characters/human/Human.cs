@@ -18,11 +18,17 @@ namespace ADKR.Game
             TopHand = new(handTexture);
             BottomHand = new(handTexture);
 
-
             AddChild(TopHand);
             AddChild(BottomHand);
 
-            TopHand.SetHand(45f, 8f);
+            TopHand.Offset = 8f;
+            TopHand.Angle = 90f;
+            TopHand.PivotOffset = new Vector2(-2f, -2f);
+
+            BottomHand.Offset = 8f;
+            BottomHand.Angle = 45f;
+            BottomHand.PivotOffset = new Vector2(-1f, -2f);
+            BottomHand.ZIndex = -1;
         }
     }
 }

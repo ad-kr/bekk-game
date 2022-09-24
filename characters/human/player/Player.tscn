@@ -1,30 +1,30 @@
-[gd_scene load_steps=11 format=3 uid="uid://df5hlfr0lcojr"]
+[gd_scene load_steps=11 format=3 uid="uid://cfw823m3icd04"]
 
-[ext_resource type="Script" path="res://characters/human/player/Player.cs" id="1_c4gxr"]
-[ext_resource type="Texture2D" uid="uid://brp6350bqhwmo" path="res://characters/human/player/empty_sprite.png" id="2_n2djx"]
+[ext_resource type="Script" path="res://characters/human/player/Player.cs" id="1_e55l8"]
+[ext_resource type="Texture2D" uid="uid://brp6350bqhwmo" path="res://characters/human/player/empty_sprite.png" id="2_bjxdn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_500om"]
-atlas = ExtResource("2_n2djx")
+atlas = ExtResource("2_bjxdn")
 region = Rect2(0, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_msc1q"]
-atlas = ExtResource("2_n2djx")
+atlas = ExtResource("2_bjxdn")
 region = Rect2(16, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2g4f5"]
-atlas = ExtResource("2_n2djx")
+atlas = ExtResource("2_bjxdn")
 region = Rect2(32, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jux4c"]
-atlas = ExtResource("2_n2djx")
+atlas = ExtResource("2_bjxdn")
 region = Rect2(48, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1aa38"]
-atlas = ExtResource("2_n2djx")
+atlas = ExtResource("2_bjxdn")
 region = Rect2(64, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ky178"]
-atlas = ExtResource("2_n2djx")
+atlas = ExtResource("2_bjxdn")
 region = Rect2(80, 0, 16, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8vbdt"]
@@ -41,7 +41,7 @@ height = 10.0
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
-script = ExtResource("1_c4gxr")
+script = ExtResource("1_e55l8")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -49,7 +49,6 @@ frames = SubResource("SpriteFrames_8vbdt")
 animation = &"run"
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 8)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_brs2b")
