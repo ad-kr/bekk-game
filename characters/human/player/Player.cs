@@ -4,11 +4,8 @@ using System;
 namespace ADKR.Game
 {
 
-    public partial class Player : Character
+    public partial class Player : Human
     {
-
-        public AnimatedSprite2D Sprite { get; set; }
-
         public override void _Ready()
         {
             base._Ready();

@@ -5,6 +5,9 @@ namespace ADKR.Game
 {
     public partial class Character : CharacterBody2D
     {
+
+        public AnimatedSprite2D Sprite { get; set; }
+
         public float RunSpeed { get; set; } = 64f;
 
         private CharacterState _state;
