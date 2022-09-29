@@ -11,6 +11,7 @@ namespace ADKR.Game
         public float RunSpeed { get; set; } = 64f;
 
         private CharacterState _state;
+
         public CharacterState State
         {
             get => _state;
@@ -23,10 +24,32 @@ namespace ADKR.Game
             }
         }
 
+        private bool _isFlipped;
+        public bool IsFlipped
+        {
+            get => _isFlipped;
+            set
+            {
+                _isFlipped = value;
+                SetFlip(value);
+            }
+        }
+
+        public override void _Ready()
+        {
+            base._Ready();
+            Sprite = GetNode<AnimatedSprite2D>("Sprite");
+        }
+
         public override void _Process(double delta)
         {
             base._Process(delta);
             State?.Update(delta);
+        }
+
+        protected virtual void SetFlip(bool isFlipped)
+        {
+            Sprite.FlipH = isFlipped;
         }
 
     }

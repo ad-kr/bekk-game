@@ -22,7 +22,7 @@ namespace ADKR.Game
         {
             base.Start();
 
-            SetPlayerFlip(_startDir);
+            Char.IsFlipped = IsFlipped(_startDir);
 
             Char.Sprite.Frame = 1;
             Char.Sprite.Playing = true;
@@ -43,8 +43,8 @@ namespace ADKR.Game
             _count += (float)delta;
 
             WaveHands();
-            SetPlayerFlip(dir);
 
+            Char.IsFlipped = IsFlipped(dir);
             Char.Velocity = dir * Char.RunSpeed;
 
             Char.MoveAndSlide();
@@ -77,14 +77,6 @@ namespace ADKR.Game
             if (dir.x == 0) return Char.Sprite.FlipH;
             if (dir.x > 0f) return false;
             return true;
-        }
-
-        private void SetPlayerFlip(Vector2 dir)
-        {
-            bool isFlipped = IsFlipped(dir);
-            Char.Sprite.FlipH = isFlipped;
-            Char.TopHand.IsFlipped = isFlipped;
-            Char.BottomHand.IsFlipped = isFlipped;
         }
     }
 }

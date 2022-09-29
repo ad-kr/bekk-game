@@ -24,11 +24,18 @@ namespace ADKR.Game
             TopHand.Offset = 8f;
             TopHand.Angle = 90f;
             TopHand.PivotOffset = new Vector2(-2f, -2f);
+            TopHand.ZIndex = 1;
 
             BottomHand.Offset = 8f;
             BottomHand.Angle = 45f;
             BottomHand.PivotOffset = new Vector2(-1f, -2f);
-            BottomHand.ZIndex = -1;
+        }
+
+        protected override void SetFlip(bool isFlipped)
+        {
+            base.SetFlip(isFlipped);
+            TopHand.IsFlipped = isFlipped;
+            BottomHand.IsFlipped = isFlipped;
         }
     }
 }
