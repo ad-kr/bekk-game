@@ -29,6 +29,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Bekk-game"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/Adrian/Documents/GitHub/bekk-game/documentation/.avi"
+
 [input]
 
 ui_left={

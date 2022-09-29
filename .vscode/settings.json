@@ -9,6 +9,7 @@
         "**/*.png": true,
         "**/*.svg": true,
         "**/*.tscn": true,
+        "**/references": true,
         "**/scenes": true,
         "**/work": true
     }
