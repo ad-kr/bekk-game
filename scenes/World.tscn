@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6r0iq8763gmm"]
+[gd_scene load_steps=5 format=3 uid="uid://cvtfg41of3skd"]
 
-[ext_resource type="PackedScene" uid="uid://cfw823m3icd04" path="res://characters/human/player/Player.tscn" id="1_im5d0"]
+[ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Texture2D" uid="uid://2tuex20bdjin" path="res://references/skuret.png" id="1_l85n4"]
 [ext_resource type="TileSet" uid="uid://dd0qvjpqtqo3x" path="res://tileset/Tileset.tres" id="2_d0adc"]
+[ext_resource type="PackedScene" uid="uid://x0itfrqtn1j2" path="res://characters/combatable/robot/Robot.tscn" id="4_mgnae"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -43,5 +44,6 @@ layer_3/tile_data = PackedInt32Array(-1507349, 131072, 7, -1507347, 131072, 7, -
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_im5d0")]
 position = Vector2(45, 16)
-z_index = 1
-y_sort_enabled = true
+
+[node name="Robot" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(136, 76)
