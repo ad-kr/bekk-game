@@ -24,7 +24,7 @@ namespace ADKR.Game
 
                 if (dist <= Char.ActivationRadius)
                 {
-                    Char.State = new RobotActivateState();
+                    Char.State = new RobotActivateState(combatable);
                     return;
                 }
             }

@@ -179,6 +179,7 @@ height = 16.0
 texture_filter = 1
 z_index = 1
 y_sort_enabled = true
+collision_mask = 3
 script = ExtResource("1_yskhr")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -190,3 +191,7 @@ playing = true
 position = Vector2(0, 8)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qxa0b")
+
+[node name="NavigationAgent2d" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 106.14

@@ -4,11 +4,11 @@ namespace ADKR.Game
 {
     public class RobotChargeState : CharacterState<Robot>
     {
-        private readonly Combatable _targetEnemy;
+        private readonly Combatable _target;
 
-        public RobotChargeState(Combatable targetEnemy)
+        public RobotChargeState(Combatable target)
         {
-            _targetEnemy = targetEnemy;
+            _target = target;
         }
 
         public async override void Start()
@@ -21,7 +21,7 @@ namespace ADKR.Game
 
             await Char.ToSignal(Char.Sprite, "animation_finished");
 
-            if (Char.State is RobotChargeState) Char.State = new RobotAttackState(_targetEnemy);
+            if (Char.State is RobotChargeState) Char.State = new RobotAttackState(_target);
         }
 
         public override void Update(double delta)
@@ -41,7 +41,7 @@ namespace ADKR.Game
                 }
             }
 
-            if (shouldRun) Char.State = new RobotRunState();
+            if (shouldRun) Char.State = new RobotRunState(_target);
         }
     }
 }

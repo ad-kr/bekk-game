@@ -7,12 +7,14 @@ namespace ADKR.Game
     {
         public float ActivationRadius { get; set; } = 64f;
         public float ChargeRadius { get; set; } = 48f;
+        public NavigationAgent2D NavigationAgent { get; set; }
 
         public override void _Ready()
         {
             base._Ready();
+            NavigationAgent = GetNode<NavigationAgent2D>("NavigationAgent2d");
             State = new RobotIdleState();
-            RunSpeed = 32f;
+            RunSpeed = 64f;
             Faction = Faction.Robot;
         }
     }

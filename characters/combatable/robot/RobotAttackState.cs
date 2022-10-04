@@ -5,11 +5,11 @@ namespace ADKR.Game
 {
     public class RobotAttackState : CharacterState<Robot>
     {
-        private Combatable _targetEnemy;
+        private readonly Combatable _target;
 
-        public RobotAttackState(Combatable targetEnemy)
+        public RobotAttackState(Combatable target)
         {
-            _targetEnemy = targetEnemy;
+            _target = target;
         }
     }
 }
