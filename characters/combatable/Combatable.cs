@@ -14,6 +14,7 @@ namespace ADKR.Game
             get => _health;
             set
             {
+                OnHealthChange(value, _health);
                 _health = value > MaxHealth ? MaxHealth : value;
                 if (_health <= 0f) Die();
             }
@@ -28,6 +29,8 @@ namespace ADKR.Game
             base._Ready();
             Combatables.Add(this);
         }
+
+        public virtual void OnHealthChange(float health, float prevHealth) { }
 
         public virtual void Die()
         {
