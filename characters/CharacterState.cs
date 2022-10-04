@@ -17,6 +17,7 @@ namespace ADKR.Game
 
         public virtual void Start() { }
         public virtual void Update(double delta) { }
+        public virtual void PhysicsUpdate(double delta) { }
         public virtual void End() { }
 
         internal virtual void SetCharacter(Character character)
