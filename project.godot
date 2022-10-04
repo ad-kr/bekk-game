@@ -12,18 +12,19 @@ config_version=5
 
 config/name="Bekk-game"
 run/main_scene="res://scenes/World.tscn"
-config/features=PackedStringArray("4.0", "C#", "Vulkan Clustered")
+config/features=PackedStringArray("4.0", "C#")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=270
+window/size/mode=3
 window/size/borderless=true
-window/size/fullscreen=true
 window/vsync/vsync_mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/size/fullscreen=true
 
 [dotnet]
 
