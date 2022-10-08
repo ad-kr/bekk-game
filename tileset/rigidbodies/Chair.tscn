@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://ghlah105cwi5"]
+
+[ext_resource type="Texture2D" uid="uid://b1amr7cwiemq2" path="res://tileset/rigidbodies/chair.png" id="1_30v3w"]
+[ext_resource type="Script" path="res://tileset/rigidbodies/Pushable.cs" id="1_thx0k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_puscp"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03wcv"]
+atlas = ExtResource("1_30v3w")
+region = Rect2(0, 0, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtfeg"]
+atlas = ExtResource("1_30v3w")
+region = Rect2(16, 0, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6hma"]
+atlas = ExtResource("1_30v3w")
+region = Rect2(32, 0, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0ldt"]
+atlas = ExtResource("1_30v3w")
+region = Rect2(48, 0, 16, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucc02"]
+animations = [{
+"frames": [SubResource("AtlasTexture_03wcv"), SubResource("AtlasTexture_gtfeg"), SubResource("AtlasTexture_m6hma"), SubResource("AtlasTexture_q0ldt")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Chair" type="RigidBody2D"]
+texture_filter = 1
+z_index = 1
+y_sort_enabled = true
+collision_layer = 8
+collision_mask = 9
+input_pickable = true
+mass = 0.25
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 2.0
+script = ExtResource("1_thx0k")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_puscp")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_ucc02")
+frame = 1
