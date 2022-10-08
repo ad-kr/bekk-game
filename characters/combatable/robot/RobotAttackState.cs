@@ -27,7 +27,7 @@ namespace ADKR.Game
                 MaxDamage = 10f,
                 OnHit = damage =>
                 {
-                    // _target.Effects.Add(new SlowDownEffect());
+                    _target.ApplyEffect(new SlowDownEffect());
                     _target.ApplyEffect(new HitEffect());
                 }
             };
