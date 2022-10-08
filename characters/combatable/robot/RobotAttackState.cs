@@ -74,7 +74,6 @@ namespace ADKR.Game
             {
                 _attackCooldown = 0f;
                 _attack.Execute();
-                GD.Print(_target.Health);
             }
         }
 
