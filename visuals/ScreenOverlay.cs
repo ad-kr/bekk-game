@@ -7,7 +7,7 @@ namespace ADKR.Game
     {
         public static ScreenOverlay Instance { get; set; }
 
-        public override void _Ready()
+        public ScreenOverlay()
         {
             Instance = this;
         }
