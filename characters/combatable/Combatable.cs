@@ -19,8 +19,9 @@ namespace ADKR.Game
                 if (_health <= 0f) Die();
             }
         }
-
         public float MaxHealth { get; set; } = 100f;
+
+        public bool IsDead { get => Health <= 0f; }
 
         public Faction Faction { get; set; }
 
