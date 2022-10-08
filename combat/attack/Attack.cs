@@ -6,7 +6,7 @@ namespace ADKR.Game
     public class Attack
     {
         private readonly AttackOptions _options;
-        private Combatable[] _targets;
+        private readonly Combatable[] _targets;
 
         public Attack(AttackOptions options, params Combatable[] targets)
         {
@@ -14,13 +14,14 @@ namespace ADKR.Game
             _targets = targets;
         }
 
-        public void Execute()
+        public void Execute(float delta = 1f)
         {
             GD.Randomize();
             foreach (Combatable target in _targets)
             {
                 float damage = (float)GD.RandRange(_options.MinDamage, _options.MaxDamage);
-                target.Health -= damage;
+                target.Health -= damage * delta;
+                _options.OnHit?.Invoke(damage);
             }
         }
     }
@@ -29,5 +30,6 @@ namespace ADKR.Game
     {
         public float MinDamage { get; set; }
         public float MaxDamage { get; set; }
+        public Action<float> OnHit { get; set; }
     }
 }
