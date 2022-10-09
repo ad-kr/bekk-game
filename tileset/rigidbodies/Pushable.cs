@@ -10,6 +10,8 @@ namespace ADKR.Game
         public override void _Ready()
         {
             Sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2d");
+            GD.Randomize();
+            Sprite.FlipH = GD.Randf() >= 0.5f;
         }
 
         public override void _PhysicsProcess(double delta)
