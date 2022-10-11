@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://coerr1lvge045"]
+[gd_scene load_steps=32 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="2_3h0i1"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://ghlah105cwi5" path="res://tileset/rigidbodies/Chair.tscn" id="6_jhutv"]
 [ext_resource type="Texture2D" uid="uid://cebw6goccen8h" path="res://visuals/masks/glow_stick_01_mask.png" id="7_4gann"]
 [ext_resource type="Texture2D" uid="uid://7mu600pb8yug" path="res://visuals/masks/back_screen_mask_sprite.png" id="9_xlq8f"]
+[ext_resource type="Texture2D" uid="uid://bl5uaxplm1j1a" path="res://UI/hp_bar_bg.png" id="12_ompfj"]
+[ext_resource type="Texture2D" uid="uid://ymsgpmx885o2" path="res://UI/hp_bar.png" id="13_naf5g"]
+[ext_resource type="Script" path="res://UI/HealthBar.cs" id="14_ciktf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsh0x"]
 shader = ExtResource("2_3h0i1")
@@ -1211,3 +1214,17 @@ z_index = 5
 y_sort_enabled = true
 points = PackedVector2Array(0, 0, 90, 45)
 width_curve = SubResource("Curve_lpmmh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 20.0
+value = 50.0
+texture_under = ExtResource("12_ompfj")
+texture_progress = ExtResource("13_naf5g")
+texture_progress_offset = Vector2(3, 3)
+script = ExtResource("14_ciktf")
