@@ -14,7 +14,7 @@ namespace ADKR.Game
 
         private RichTextLabel _label;
 
-        private Queue<string> _texts = new();
+        private readonly Queue<string> _texts = new();
 
         public DialogueBox()
         {

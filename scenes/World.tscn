@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://coerr1lvge045"]
+[gd_scene load_steps=35 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="2_3h0i1"]
@@ -100,10 +100,6 @@ width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Curve" id="Curve_lpmmh"]
-_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
-point_count = 2
 
 [sub_resource type="Theme" id="Theme_o7g1h"]
 default_font = ExtResource("16_hh5nu")
@@ -1215,13 +1211,6 @@ position = Vector2(-315, 29)
 [node name="Chair2" parent="TileMap/Chairs" instance=ExtResource("6_jhutv")]
 position = Vector2(-317, -43)
 
-[node name="Line2d" type="Line2D" parent="TileMap"]
-position = Vector2(71, 71)
-z_index = 5
-y_sort_enabled = true
-points = PackedVector2Array(0, 0, 90, 45)
-width_curve = SubResource("Curve_lpmmh")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
@@ -1276,3 +1265,7 @@ bbcode_enabled = true
 text = "This is some sample text øæå. It is able to wrap around and it's nice."
 fit_content_height = true
 scroll_active = false
+
+[node name="FocusPoint" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-144, -290)
