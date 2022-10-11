@@ -5,40 +5,35 @@ namespace ADKR.Game
 {
     public class RobotAttackState : CharacterState<Robot>
     {
-        private readonly Combatable _target;
-
         private const float _laserSpeed = 32f;
         private Vector2 _laserPos;
         private Vector2 _laserVelocity = Vector2.Zero;
         private readonly float _laserThreshold = 4f;
 
-        private readonly Attack _attack;
+        private Attack _attack;
         private float _attackCooldown = 500f;
         private const float _attackCooldownDuration = 500f;
 
         private Sprite2D debugCircle;
 
-        public RobotAttackState(Combatable target)
-        {
-            _target = target;
-            AttackOptions attackOptions = new()
-            {
-                MinDamage = 10f,
-                MaxDamage = 10f,
-                OnHit = damage =>
-                {
-                    _target.ApplyEffect(new SlowDownEffect());
-                    _target.ApplyEffect(new HitEffect());
-                }
-            };
-
-            _attack = new Attack(attackOptions, _target);
-        }
-
         public override void Start()
         {
             base.Start();
-            Vector2 dir = Char.GlobalPosition.DirectionTo(_target.Position);
+
+            AttackOptions attackOptions = new()
+            {
+                MinDamage = 3f,
+                MaxDamage = 6f,
+                OnHit = damage =>
+                {
+                    Char.Target.ApplyEffect(new SlowDownEffect());
+                    Char.Target.ApplyEffect(new HitEffect());
+                }
+            };
+
+            _attack = new Attack(attackOptions, Char.Target);
+
+            Vector2 dir = Char.GlobalPosition.DirectionTo(Char.Target.Position);
             _laserPos = Char.Position + dir * 16f;
             debugCircle = GD.Load<PackedScene>("res://debug/DebugPoint.tscn").Instantiate<Sprite2D>();
             ScreenOverlay.Instance.AddChild(debugCircle);
@@ -48,20 +43,20 @@ namespace ADKR.Game
         {
             base.Update(delta);
 
-            if (_target.IsDead)
+            if (Char.Target.IsDead)
             {
-                Char.State = new RobotDeactivateState();
+                Char.State = Char.DeactivateState;
                 return;
             }
 
-            float distance = _target.Position.DistanceTo(Char.Position);
-            if (distance > Char.ActivationRadius * 2f)
+            float dist = Char.Target.Position.DistanceTo(Char.Position);
+            if (dist > Char.ActivationRadius * 2f)
             {
-                Char.State = new RobotRunState(_target);
+                Char.State = Char.RunState;
                 return;
             }
 
-            Vector2 dir = _laserPos.DirectionTo(_target.Position);
+            Vector2 dir = _laserPos.DirectionTo(Char.Target.Position);
             _laserVelocity = dir * _laserSpeed;
             _laserPos += _laserVelocity * (float)delta;
             debugCircle.Position = _laserPos;
@@ -69,7 +64,7 @@ namespace ADKR.Game
             _attackCooldown += (float)delta;
             if (_attackCooldown * 1000f < _attackCooldownDuration) return;
 
-            float laserTargetDistance = _target.Position.DistanceTo(_laserPos);
+            float laserTargetDistance = Char.Target.Position.DistanceTo(_laserPos);
             if (laserTargetDistance <= _laserThreshold)
             {
                 _attackCooldown = 0f;

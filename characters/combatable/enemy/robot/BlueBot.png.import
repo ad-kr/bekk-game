@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hhqtl1g7yhpn"
-path="res://.godot/imported/BlueBot.png-2aafabd8cd1256615020022c01e01691.ctex"
+path="res://.godot/imported/BlueBot.png-98e0b0cd8cfaa6fc78fc31eced47f957.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/combatable/robot/BlueBot.png"
-dest_files=["res://.godot/imported/BlueBot.png-2aafabd8cd1256615020022c01e01691.ctex"]
+source_file="res://characters/combatable/enemy/robot/BlueBot.png"
+dest_files=["res://.godot/imported/BlueBot.png-98e0b0cd8cfaa6fc78fc31eced47f957.ctex"]
 
 [params]
 

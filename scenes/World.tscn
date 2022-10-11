@@ -1,11 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://rk03modk1d45"]
+[gd_scene load_steps=29 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="2_3h0i1"]
 [ext_resource type="TileSet" uid="uid://dd0qvjpqtqo3x" path="res://tileset/Tileset.tres" id="2_d0adc"]
 [ext_resource type="Texture2D" uid="uid://dyypxrxd674wv" path="res://visuals/masks/screen_mask_sprite.png" id="2_ixlrw"]
 [ext_resource type="Texture2D" uid="uid://cokij7jvaqqhd" path="res://visuals/masks/green_wall_mask.png" id="2_or8wh"]
-[ext_resource type="PackedScene" uid="uid://x0itfrqtn1j2" path="res://characters/combatable/robot/Robot.tscn" id="4_mgnae"]
+[ext_resource type="PackedScene" uid="uid://cqoyfn0xroiyq" path="res://characters/combatable/enemy/robot/Robot.tscn" id="4_mgnae"]
 [ext_resource type="Script" path="res://visuals/ScreenOverlay.cs" id="5_qakm0"]
 [ext_resource type="Texture2D" uid="uid://cv6pb3p4k2dbf" path="res://visuals/masks/bekk_mask.png" id="6_8h3gx"]
 [ext_resource type="PackedScene" uid="uid://ghlah105cwi5" path="res://tileset/rigidbodies/Chair.tscn" id="6_jhutv"]
