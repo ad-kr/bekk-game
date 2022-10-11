@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://rk03modk1d45"]
+[gd_scene load_steps=29 format=3 uid="uid://rk03modk1d45"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="2_3h0i1"]
@@ -94,6 +94,10 @@ width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_lpmmh"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -934,6 +938,11 @@ material = SubResource("ShaderMaterial_v5wr3")
 position = Vector2(-184, -151)
 texture = SubResource("GradientTexture2D_pxywp")
 
+[node name="GradientMask11" type="Sprite2D" parent="BackBufferCopy/GradientMasks"]
+material = SubResource("ShaderMaterial_v5wr3")
+position = Vector2(-142, 174)
+texture = SubResource("GradientTexture2D_pxywp")
+
 [node name="GradientMask6" type="Sprite2D" parent="BackBufferCopy/GradientMasks"]
 material = SubResource("ShaderMaterial_v5wr3")
 position = Vector2(72, 462)
@@ -1195,3 +1204,10 @@ position = Vector2(-315, 29)
 
 [node name="Chair2" parent="TileMap/Chairs" instance=ExtResource("6_jhutv")]
 position = Vector2(-317, -43)
+
+[node name="Line2d" type="Line2D" parent="TileMap"]
+position = Vector2(71, 71)
+z_index = 5
+y_sort_enabled = true
+points = PackedVector2Array(0, 0, 90, 45)
+width_curve = SubResource("Curve_lpmmh")
