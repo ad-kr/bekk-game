@@ -19,6 +19,7 @@ namespace ADKR.Game
         {
             base.OnHealthChange(health, prevHealth);
             HealthBar.Instance.SetValue(health);
+            DialogueBox.Talk("this is some dialogue. I hope it works æåø", "I enqueud multiple :)", "sure hope it works");
         }
     }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://coerr1lvge045"]
+[gd_scene load_steps=36 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="2_3h0i1"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bl5uaxplm1j1a" path="res://UI/hp_bar_bg.png" id="12_ompfj"]
 [ext_resource type="Texture2D" uid="uid://ymsgpmx885o2" path="res://UI/hp_bar.png" id="13_naf5g"]
 [ext_resource type="Script" path="res://UI/HealthBar.cs" id="14_ciktf"]
+[ext_resource type="Texture2D" uid="uid://dve4yt6wcdc28" path="res://UI/dialogue_rect.png" id="15_fdlnj"]
+[ext_resource type="FontFile" uid="uid://cxo3mr755tp2w" path="res://fonts/OpenSansPX.ttf" id="16_hh5nu"]
+[ext_resource type="Script" path="res://UI/DialogueBox.cs" id="16_xd4is"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsh0x"]
 shader = ExtResource("2_3h0i1")
@@ -101,6 +104,10 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="Curve" id="Curve_lpmmh"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
+
+[sub_resource type="Theme" id="Theme_o7g1h"]
+default_font = ExtResource("16_hh5nu")
+default_font_size = 16
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -1228,3 +1235,44 @@ texture_under = ExtResource("12_ompfj")
 texture_progress = ExtResource("13_naf5g")
 texture_progress_offset = Vector2(3, 3)
 script = ExtResource("14_ciktf")
+
+[node name="DialogueBox" type="NinePatchRect" parent="CanvasLayer"]
+process_mode = 3
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -70.0
+offset_right = 140.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(140, 0)
+texture = ExtResource("15_fdlnj")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource("16_xd4is")
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 82.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+theme = SubResource("Theme_o7g1h")
+theme_override_colors/default_color = Color(0.12549, 0.180392, 0.215686, 1)
+bbcode_enabled = true
+text = "This is some sample text øæå. It is able to wrap around and it's nice."
+fit_content_height = true
+scroll_active = false
