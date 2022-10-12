@@ -21,7 +21,7 @@ namespace ADKR.Game
             {
                 float damage = (float)GD.RandRange(_options.MinDamage, _options.MaxDamage);
                 target.Health -= damage * delta;
-                _options.OnHit?.Invoke(damage);
+                _options.OnHit?.Invoke(target, damage);
             }
         }
     }
@@ -30,6 +30,6 @@ namespace ADKR.Game
     {
         public float MinDamage { get; set; }
         public float MaxDamage { get; set; }
-        public Action<float> OnHit { get; set; }
+        public Action<Combatable, float> OnHit { get; set; }
     }
 }

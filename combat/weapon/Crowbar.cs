@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using ADKR.Extensions;
+using System.Collections.Generic;
 
 namespace ADKR.Game
 {
@@ -9,7 +10,8 @@ namespace ADKR.Game
 
         private float _defaultBottomAngle;
 
-        private const float AttackRadius = 16f;
+        private const float AttackRadius = 24f;
+        private const float AttackAngle = 60f;
 
         public override void _Ready()
         {
@@ -41,7 +43,40 @@ namespace ADKR.Game
                 BottomHand.Angle = angle;
             }, BottomHand.Angle, _defaultBottomAngle, 0.2f);
 
+            List<Combatable> targets = new();
+            foreach (Combatable combatable in Combatable.Combatables)
+            {
+                if (combatable == Player) continue;
+                if (FactionValidator.GetRelation(Player.Faction, combatable.Faction) != FactionRelation.Hostile) continue;
+                float dist = Player.Position.DistanceTo(combatable.Position);
+
+                if (dist <= AttackRadius)
+                {
+                    float angleTo = dir.AngleTo(combatable.Position - Player.Position);
+                    angleTo = Mathf.RadToDeg(angleTo);
+                    if (angleTo < AttackAngle * 0.5f) targets.Add(combatable);
+                }
+            }
+
+            Attack attack = new(new AttackOptions()
+            {
+                MinDamage = 3f,
+                MaxDamage = 6f,
+                OnHit = (target, damage) =>
+                {
+                    target.ApplyEffect(new SlowDownEffect());
+                    target.ApplyEffect(new HitEffect());
+                }
+            }, targets.ToArray());
+            attack.Execute();
+
             return ToSignal(tween, "finished");
+        }
+
+        private static float AngleDifference(float a1, float a2)
+        {
+            float diff = a2 - a1;
+            return Mathf.Abs(diff) < Mathf.Pi ? diff : diff + (2f * Mathf.Pi * Mathf.Sign(diff));
         }
     }
 }
