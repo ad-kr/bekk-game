@@ -14,6 +14,9 @@ namespace ADKR.Game
             {
                 _equippedWeapon?.QueueFree();
                 _equippedWeapon = value;
+                _equippedWeapon.Player = this;
+                _equippedWeapon.TopHand = TopHand;
+                _equippedWeapon.BottomHand = BottomHand;
                 TopHand.HandSprite.AddChild(value);
             }
         }
@@ -27,9 +30,22 @@ namespace ADKR.Game
             HealthBar.Instance.SetMinMax(0, (int)MaxHealth);
             HealthBar.Instance.SetValue(Health);
 
-            await ToSignal(GetTree().CreateTimer(3f), "timeout");
+            await ToSignal(GetTree().CreateTimer(1f), "timeout");
 
             EquippedWeapon = new Crowbar();
+        }
+
+        public override void _Input(InputEvent e)
+        {
+            base._Input(e);
+            if (EquippedWeapon != null && e is InputEventMouseButton mouseEvent && e.IsActionPressed("attack"))
+            {
+                if (State is PlayerAttackState) return;
+                Vector2 dir = mouseEvent.Position - (GetViewportRect().Size / 2f);
+                dir = dir.Normalized();
+
+                State = new PlayerAttackState(dir);
+            }
         }
 
         public override void OnHealthChange(float health, float prevHealth)

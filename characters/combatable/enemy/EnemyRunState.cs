@@ -12,6 +12,7 @@ namespace ADKR.Game
         public override void Start()
         {
             base.Start();
+            _time = 0f;
 
             Char.Sprite.Animation = "run";
             Char.Sprite.Playing = true;

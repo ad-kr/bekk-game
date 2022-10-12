@@ -1,3 +1,5 @@
+using Godot;
+
 namespace ADKR.Game
 {
     public abstract class CharacterState<T> : CharacterState where T : Character
@@ -18,6 +20,7 @@ namespace ADKR.Game
         public virtual void Start() { }
         public virtual void Update(double delta) { }
         public virtual void PhysicsUpdate(double delta) { }
+        public virtual void Input(InputEvent e) { }
         public virtual void End() { }
 
         internal virtual void SetCharacter(Character character)

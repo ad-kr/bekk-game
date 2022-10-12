@@ -9,6 +9,7 @@ namespace ADKR.Game
         public async override void Start()
         {
             base.Start();
+            _isCancelled = false;
 
             Char.Sprite.Frame = 0;
             Char.Sprite.Animation = "charge";

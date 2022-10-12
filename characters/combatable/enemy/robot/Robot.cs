@@ -14,5 +14,10 @@ namespace ADKR.Game
             
             AttackState = new RobotAttackState();
         }
+
+        public override void _Process(double delta)
+        {
+            base._Process(delta);
+        }
     }
 }

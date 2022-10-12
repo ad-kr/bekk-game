@@ -12,13 +12,16 @@ namespace ADKR.Game
 
         private Attack _attack;
         private float _attackCooldown = 500f;
-        private const float _attackCooldownDuration = 500f;
+        private const float AttackCooldownDuration = 500f;
 
         private Sprite2D debugCircle;
 
         public override void Start()
         {
             base.Start();
+            _attackCooldown = AttackCooldownDuration;
+            _laserPos = default;
+            _laserVelocity = Vector2.Zero;
 
             AttackOptions attackOptions = new()
             {
@@ -62,7 +65,7 @@ namespace ADKR.Game
             debugCircle.Position = _laserPos;
 
             _attackCooldown += (float)delta;
-            if (_attackCooldown * 1000f < _attackCooldownDuration) return;
+            if (_attackCooldown * 1000f < AttackCooldownDuration) return;
 
             float laserTargetDistance = Char.Target.Position.DistanceTo(_laserPos);
             if (laserTargetDistance <= _laserThreshold)

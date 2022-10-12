@@ -60,6 +60,12 @@ namespace ADKR.Game
             _effects.ForEach(effect => effect.PhysicsUpdate(delta));
         }
 
+        public override void _Input(InputEvent e)
+        {
+            base._Input(e);
+            State?.Input(e);
+        }
+
         public void ApplyEffect(CharacterEffect effect)
         {
             Type type = effect.GetType();
