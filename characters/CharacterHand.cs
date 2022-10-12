@@ -7,7 +7,7 @@ namespace ADKR.Game
     {
         private Node2D _pivot = new();
 
-        private Sprite2D _hand = new();
+        public Sprite2D HandSprite { get; set; } = new();
 
         private bool _isFlipped = false;
         public bool IsFlipped
@@ -39,7 +39,7 @@ namespace ADKR.Game
             set
             {
                 _offset = value;
-                _hand.Position = new Vector2(_offset, 0f);
+                HandSprite.Position = new Vector2(_offset, 0f);
             }
         }
 
@@ -65,10 +65,10 @@ namespace ADKR.Game
         {
             base._Ready();
 
-            _hand.Texture = _texture;
+            HandSprite.Texture = _texture;
 
             AddChild(_pivot);
-            _pivot.AddChild(_hand);
+            _pivot.AddChild(HandSprite);
         }
     }
 }
