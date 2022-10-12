@@ -3,6 +3,7 @@
     "files.exclude": {
         "**/.gitattributes": true,
         "**/.gitignore": true,
+        "**/.tscn": true,
         "**/.vscode": true,
         "**/*.godot": true,
         "**/*.import": true,
@@ -11,7 +12,6 @@
         "**/*.tscn": true,
         "**/documentation": true,
         "**/references": true,
-        "**/scenes": true,
         "**/work": true
     }
 }

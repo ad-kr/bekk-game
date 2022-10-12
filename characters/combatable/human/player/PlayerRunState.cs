@@ -40,6 +40,8 @@ namespace ADKR.Game
                 return;
             }
 
+            World.RefreshTimer();
+
             _count += (float)delta;
 
             WaveHands();

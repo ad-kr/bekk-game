@@ -38,5 +38,11 @@ namespace ADKR.Game
             Combatables.Remove(this);
         }
 
+        public override void _ExitTree()
+        {
+            base._ExitTree();
+            Combatables.Remove(this);
+        }
+
     }
 }

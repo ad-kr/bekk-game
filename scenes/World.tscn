@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://coerr1lvge045"]
+[gd_scene load_steps=39 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
+[ext_resource type="Script" path="res://scenes/World.cs" id="1_y8nst"]
 [ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="2_3h0i1"]
 [ext_resource type="TileSet" uid="uid://dd0qvjpqtqo3x" path="res://tileset/Tileset.tres" id="2_d0adc"]
 [ext_resource type="Texture2D" uid="uid://dyypxrxd674wv" path="res://visuals/masks/screen_mask_sprite.png" id="2_ixlrw"]
@@ -17,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://dve4yt6wcdc28" path="res://UI/dialogue_rect.png" id="15_fdlnj"]
 [ext_resource type="FontFile" uid="uid://cxo3mr755tp2w" path="res://fonts/OpenSansPX.ttf" id="16_hh5nu"]
 [ext_resource type="Script" path="res://UI/DialogueBox.cs" id="16_xd4is"]
+[ext_resource type="FontFile" uid="uid://irdx4k51l5t7" path="res://fonts/OpenSansPXBold.ttf" id="19_e677v"]
+[ext_resource type="Script" path="res://UI/TimeoutReminder.cs" id="20_6dvcr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsh0x"]
 shader = ExtResource("2_3h0i1")
@@ -105,8 +108,12 @@ fill_from = Vector2(0.5, 0.5)
 default_font = ExtResource("16_hh5nu")
 default_font_size = 16
 
+[sub_resource type="Theme" id="Theme_droow"]
+default_font = ExtResource("19_e677v")
+
 [node name="World" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_y8nst")
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 z_index = 10
@@ -1266,6 +1273,20 @@ text = "This is some sample text øæå. It is able to wrap around and it's nice
 fit_content_height = true
 scroll_active = false
 
-[node name="FocusPoint" type="Node2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(-144, -290)
+[node name="TimeoutReminder" type="RichTextLabel" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 42.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme = SubResource("Theme_droow")
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+bbcode_enabled = true
+text = "[center]Spiller du fortsatt?"
+fit_content_height = true
+scroll_active = false
+script = ExtResource("20_6dvcr")

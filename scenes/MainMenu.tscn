@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtyok4h3baxtx"]
+
+[ext_resource type="Script" path="res://scenes/MainMenu.cs" id="1_m6il4"]
+[ext_resource type="FontFile" uid="uid://cxo3mr755tp2w" path="res://fonts/OpenSansPX.ttf" id="1_ow2of"]
+
+[sub_resource type="Theme" id="Theme_b8mcw"]
+default_font = ExtResource("1_ow2of")
+
+[node name="MainMenu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m6il4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 217.0
+offset_bottom = 231.0
+grow_horizontal = 2
+theme = SubResource("Theme_b8mcw")
+bbcode_enabled = true
+text = "[center]Trykk [E] for å starte spillet."
+fit_content_height = true
+scroll_active = false
