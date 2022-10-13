@@ -17,12 +17,6 @@ namespace ADKR.Game
             Instance = this;
         }
 
-        public override void _Ready()
-        {
-            base._Ready();
-            // Objectives = new();
-        }
-
         public override void _PhysicsProcess(double delta)
         {
             base._PhysicsProcess(delta);
