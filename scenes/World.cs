@@ -7,7 +7,7 @@ namespace ADKR.Game
     {
         public static World Instance { get; set; }
 
-        public ObjectiveManager Objectives { get; set; } = new();
+        public ObjectiveManager Objectives { get; set; }
 
         private const float Timeout = 120000f;
         private float _elapsed = Timeout;
@@ -15,6 +15,12 @@ namespace ADKR.Game
         public World()
         {
             Instance = this;
+        }
+
+        public override void _Ready()
+        {
+            base._Ready();
+            // Objectives = new();
         }
 
         public override void _PhysicsProcess(double delta)

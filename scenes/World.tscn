@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://coerr1lvge045"]
+[gd_scene load_steps=41 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Script" path="res://scenes/World.cs" id="1_y8nst"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://UI/DialogueBox.cs" id="16_xd4is"]
 [ext_resource type="FontFile" uid="uid://irdx4k51l5t7" path="res://fonts/OpenSansPXBold.ttf" id="19_e677v"]
 [ext_resource type="Script" path="res://UI/TimeoutReminder.cs" id="20_6dvcr"]
+[ext_resource type="Script" path="res://UI/ObjectiveLabel.cs" id="21_j76lj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsh0x"]
 shader = ExtResource("2_3h0i1")
@@ -110,6 +111,9 @@ default_font_size = 16
 
 [sub_resource type="Theme" id="Theme_droow"]
 default_font = ExtResource("19_e677v")
+
+[sub_resource type="Theme" id="Theme_ojy41"]
+default_font = ExtResource("16_hh5nu")
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -1255,6 +1259,7 @@ patch_margin_bottom = 3
 script = ExtResource("16_xd4is")
 
 [node name="Text" type="RichTextLabel" parent="CanvasLayer/DialogueBox"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1289,3 +1294,18 @@ text = "[center]Spiller du fortsatt?"
 fit_content_height = true
 scroll_active = false
 script = ExtResource("20_6dvcr")
+
+[node name="ObjectiveLabel" type="RichTextLabel" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 8.0
+offset_top = 36.0
+offset_right = 136.0
+offset_bottom = 172.0
+scale = Vector2(0.75, 0.75)
+theme = SubResource("Theme_ojy41")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "This is an objective instruction text."
+fit_content_height = true
+scroll_active = false
+script = ExtResource("21_j76lj")

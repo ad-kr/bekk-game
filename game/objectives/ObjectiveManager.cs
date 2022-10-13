@@ -8,15 +8,26 @@ namespace ADKR.Game
     {
         private Objective _objective;
 
+        public Objective Objective
+        {
+            get => _objective;
+            set
+            {
+                _objective?.End();
+                _objective = value;
+                _objective?.Start();
+            }
+        }
+
         public ObjectiveManager()
         {
-			//Set default first objective
+            Objective = new StartObjective();
         }
 
         public void SetObjective(Objective objective)
         {
             _objective = objective;
-			_objective.Start();
+            _objective.Start();
         }
     }
 }
