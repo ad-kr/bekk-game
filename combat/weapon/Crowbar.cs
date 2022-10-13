@@ -72,11 +72,5 @@ namespace ADKR.Game
 
             return ToSignal(tween, "finished");
         }
-
-        private static float AngleDifference(float a1, float a2)
-        {
-            float diff = a2 - a1;
-            return Mathf.Abs(diff) < Mathf.Pi ? diff : diff + (2f * Mathf.Pi * Mathf.Sign(diff));
-        }
     }
 }
