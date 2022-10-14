@@ -14,7 +14,7 @@ namespace ADKR.Game
         {
             base.Start();
             Tween tween = Char.CreateTween();
-            Char.Sprite.Modulate = Colors.White * 4f;
+            Char.Sprite.Modulate = Colors.White * 10f;
             tween.TweenProperty(Char.Sprite, "modulate", Colors.White, 0.2d);
             await Char.ToSignal(tween, "finished");
             Char.RemoveEffect(this);
