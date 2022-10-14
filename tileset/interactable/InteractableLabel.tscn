@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqk3qngcsxgsk"]
+
+[ext_resource type="FontFile" uid="uid://irdx4k51l5t7" path="res://fonts/OpenSansPXBold.ttf" id="1_bduyn"]
+
+[sub_resource type="Theme" id="Theme_hpc2l"]
+default_font = ExtResource("1_bduyn")
+
+[node name="InteractableLabel" type="Node2D"]
+texture_filter = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -50.0
+offset_right = 84.0
+offset_bottom = 40.0
+scale = Vector2(0.75, 0.75)
+theme = SubResource("Theme_hpc2l")
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+text = "Interact"
+fit_content_height = true
+scroll_active = false

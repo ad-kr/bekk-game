@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://coerr1lvge045"]
+[gd_scene load_steps=46 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Script" path="res://scenes/World.cs" id="1_y8nst"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cebw6goccen8h" path="res://visuals/masks/glow_stick_01_mask.png" id="7_4gann"]
 [ext_resource type="Texture2D" uid="uid://7mu600pb8yug" path="res://visuals/masks/back_screen_mask_sprite.png" id="9_xlq8f"]
 [ext_resource type="Texture2D" uid="uid://bl5uaxplm1j1a" path="res://UI/hp_bar_bg.png" id="12_ompfj"]
+[ext_resource type="Script" path="res://tileset/interactable/WorkshopInteractable.cs" id="13_a3gtr"]
 [ext_resource type="Texture2D" uid="uid://ymsgpmx885o2" path="res://UI/hp_bar.png" id="13_naf5g"]
 [ext_resource type="Script" path="res://UI/HealthBar.cs" id="14_ciktf"]
 [ext_resource type="Texture2D" uid="uid://dve4yt6wcdc28" path="res://UI/dialogue_rect.png" id="15_fdlnj"]
@@ -106,6 +107,9 @@ width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48vv7"]
+radius = 87.0517
 
 [sub_resource type="Theme" id="Theme_o7g1h"]
 default_font = ExtResource("16_hh5nu")
@@ -1226,6 +1230,16 @@ position = Vector2(-315, 29)
 
 [node name="Chair2" parent="TileMap/Chairs" instance=ExtResource("6_jhutv")]
 position = Vector2(-317, -43)
+
+[node name="WorkshopInteractable" type="Area2D" parent="."]
+top_level = true
+position = Vector2(37, -1087)
+z_index = 99
+script = ExtResource("13_a3gtr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="WorkshopInteractable"]
+shape = SubResource("CircleShape2D_48vv7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
