@@ -52,10 +52,13 @@ namespace ADKR.Game
                 Char.NavigationAgent.SetTargetLocation(Char.Target.Position);
             }
 
+            if (Char.Velocity.Length() > Char.RunSpeed) Char.Velocity = Char.Velocity.Normalized() * Char.RunSpeed;
+
             Vector2 nextPos = Char.NavigationAgent.GetNextLocation();
             Vector2 dir = Char.GlobalPosition.DirectionTo(nextPos);
             Vector2 desiredVelocity = dir * Char.RunSpeed;
-            Vector2 steering = (desiredVelocity - Char.Velocity) * (float)delta * 1f;
+            Vector2 steering = (desiredVelocity - Char.Velocity) * (float)delta;
+
             Char.Velocity += steering;
 
             Char.MoveAndSlide();
