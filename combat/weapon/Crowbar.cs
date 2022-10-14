@@ -11,7 +11,7 @@ namespace ADKR.Game
         private float _defaultBottomAngle;
 
         private const float AttackRadius = 24f;
-        private const float AttackAngle = 60f;
+        private const float AttackAngle = 120f;
 
         public override void _Ready()
         {
@@ -59,6 +59,8 @@ namespace ADKR.Game
                 }
             }
 
+            GD.Print(dir);
+
             Attack attack = new(new AttackOptions()
             {
                 MinDamage = 3f,
@@ -68,6 +70,7 @@ namespace ADKR.Game
                     target.ApplyEffect(new SlowDownEffect());
                     target.ApplyEffect(new HitEffect());
                     target.ApplyEffect(new HitMark(damage));
+                    target.ApplyEffect(new KnockBackEffect(dir));
                 }
             }, targets.ToArray());
             attack.Execute();
