@@ -17,7 +17,7 @@ namespace ADKR.Game
 
             await Char.ToSignal(Char.Sprite, "animation_finished");
 
-            if (!_isCancelled) Char.State = Char.AttackState;
+            if (!_isCancelled && !Char.IsDead) Char.State = Char.AttackState;
         }
 
         public override void Update(double delta)

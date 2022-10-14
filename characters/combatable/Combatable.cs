@@ -14,8 +14,9 @@ namespace ADKR.Game
             get => _health;
             set
             {
-                OnHealthChange(value, _health);
+                float prevHealth = _health;
                 _health = value > MaxHealth ? MaxHealth : value;
+                OnHealthChange(_health, prevHealth);
                 if (_health <= 0f) Die();
             }
         }

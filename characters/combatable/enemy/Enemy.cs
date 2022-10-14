@@ -20,6 +20,7 @@ namespace ADKR.Game
         public CharacterState ChargeState { get; set; } = new EnemyChargeState();
         public CharacterState AttackState { get; set; } = new EnemyAttackState();
         public CharacterState DeactivateState { get; set; } = new EnemyDeactivateState();
+        public CharacterState DeathState { get; set; } = new EnemyDeathState();
 
         #endregion
 
@@ -28,6 +29,12 @@ namespace ADKR.Game
             base._Ready();
             NavigationAgent = GetNode<NavigationAgent2D>("NavigationAgent2d");
             State = new EnemyIdleState();
+        }
+
+        public override void Die()
+        {
+            base.Die();
+            State = DeathState;
         }
     }
 }
