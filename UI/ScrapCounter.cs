@@ -5,7 +5,7 @@ namespace ADKR.Game
 {
     public partial class ScrapCounter : HBoxContainer
     {
-        public ScrapCounter Instance { get; set; }
+        public static ScrapCounter Instance { get; set; }
 
         private RichTextLabel _label;
 

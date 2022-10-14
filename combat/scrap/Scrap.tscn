@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmwu4234mblhd"]
+
+[ext_resource type="Script" path="res://combat/scrap/Scrap.cs" id="1_1x3r7"]
+[ext_resource type="Texture2D" uid="uid://beuhxvt1s87wn" path="res://UI/scrap.png" id="1_7v7cb"]
+[ext_resource type="Texture2D" uid="uid://wxneddlucnlf" path="res://visuals/loot_shadow.png" id="3_atppj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b2vo8"]
+radius = 20.0
+
+[node name="Scrap" type="Area2D"]
+texture_filter = 1
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_1x3r7")
+
+[node name="Scrap" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_7v7cb")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_b2vo8")
+
+[node name="LootShadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(0, 8)
+scale = Vector2(0.75, 0.75)
+z_index = -1
+y_sort_enabled = true
+texture = ExtResource("3_atppj")
