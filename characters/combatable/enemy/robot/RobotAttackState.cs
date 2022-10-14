@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Object = Godot.Object;
 
 namespace ADKR.Game
 {
@@ -86,7 +87,7 @@ namespace ADKR.Game
         public override void End()
         {
             base.End();
-            debugCircle?.QueueFree();
+            if (Object.IsInstanceValid(debugCircle)) debugCircle?.QueueFree();
         }
     }
 }
