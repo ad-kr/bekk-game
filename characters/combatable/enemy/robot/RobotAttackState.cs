@@ -19,6 +19,13 @@ namespace ADKR.Game
         public override void Start()
         {
             base.Start();
+
+            if (Char.Target == null || Char.Target.IsDead)
+            {
+                Char.State = Char.DeactivateState;
+                return;
+            }
+
             _attackCooldown = AttackCooldownDuration;
             _laserPos = default;
             _laserVelocity = Vector2.Zero;
@@ -31,6 +38,7 @@ namespace ADKR.Game
                 {
                     target.ApplyEffect(new SlowDownEffect());
                     target.ApplyEffect(new HitEffect());
+                    target.ApplyEffect(new HitMark(damage));
                 }
             };
 
@@ -46,7 +54,7 @@ namespace ADKR.Game
         {
             base.Update(delta);
 
-            if (Char.Target.IsDead)
+            if (Char.Target == null || Char.Target.IsDead)
             {
                 Char.State = Char.DeactivateState;
                 return;
@@ -78,7 +86,7 @@ namespace ADKR.Game
         public override void End()
         {
             base.End();
-            debugCircle.QueueFree();
+            debugCircle?.QueueFree();
         }
     }
 }

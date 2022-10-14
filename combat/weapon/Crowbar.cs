@@ -66,6 +66,7 @@ namespace ADKR.Game
                 {
                     target.ApplyEffect(new SlowDownEffect());
                     target.ApplyEffect(new HitEffect());
+                    target.ApplyEffect(new HitMark(damage));
                 }
             }, targets.ToArray());
             attack.Execute();

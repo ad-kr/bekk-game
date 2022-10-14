@@ -5,11 +5,15 @@ namespace ADKR.Game
 {
     class SlowDownEffect : CharacterEffect
     {
+        public SlowDownEffect()
+        {
+            IsUnique = true;
+        }
+
         public override async void Start()
         {
             base.Start();
-            IsUnique = true;
-            
+
             float originalSpeed = Char.RunSpeed;
             Char.RunSpeed *= 0.5f;
 

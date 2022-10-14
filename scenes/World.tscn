@@ -1074,6 +1074,21 @@ position = Vector2(-100, -99)
 [node name="Robot" parent="TileMap" instance=ExtResource("4_mgnae")]
 position = Vector2(136, 76)
 
+[node name="Robot2" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(169, 92)
+
+[node name="Robot3" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(176, 68)
+
+[node name="Robot4" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(112, 51)
+
+[node name="Robot5" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(112, 51)
+
+[node name="Robot6" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(110, 87)
+
 [node name="Chairs" type="Node2D" parent="TileMap"]
 y_sort_enabled = true
 

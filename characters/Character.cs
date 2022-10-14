@@ -68,10 +68,7 @@ namespace ADKR.Game
 
         public void ApplyEffect(CharacterEffect effect)
         {
-            Type type = effect.GetType();
-            MethodInfo method = typeof(Queryable).GetMethod("OfType");
-            MethodInfo generic = method.MakeGenericMethod(new Type[] { type });
-            bool containsType = ((IEnumerable<object>)generic.Invoke(null, new object[] { _effects.AsQueryable() })).Any();
+            bool containsType = _effects.Any(eff => eff.GetType() == effect.GetType());
 
             if (effect.IsUnique && containsType) return;
             _effects.Add(effect);

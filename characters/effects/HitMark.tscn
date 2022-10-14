@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://5uxap6ihnm1m"]
+
+[ext_resource type="FontFile" uid="uid://irdx4k51l5t7" path="res://fonts/OpenSansPXBold.ttf" id="1_date3"]
+
+[sub_resource type="Theme" id="Theme_ffs5i"]
+default_font = ExtResource("1_date3")
+
+[node name="HitMark" type="RichTextLabel"]
+texture_filter = 1
+offset_right = 16.0
+offset_bottom = 14.0
+theme = SubResource("Theme_ffs5i")
+theme_override_colors/default_color = Color(0.788235, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+text = "10"
+fit_content_height = true
+scroll_active = false
