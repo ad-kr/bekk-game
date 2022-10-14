@@ -54,7 +54,8 @@ namespace ADKR.Game
                 {
                     float angleTo = dir.AngleTo(combatable.Position - Player.Position);
                     angleTo = Mathf.RadToDeg(angleTo);
-                    if (angleTo < AttackAngle * 0.5f) targets.Add(combatable);
+
+                    if (Mathf.Abs(angleTo) < AttackAngle * 0.5f) targets.Add(combatable);
                 }
             }
 
