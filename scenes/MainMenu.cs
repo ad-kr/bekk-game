@@ -14,6 +14,7 @@ namespace ADKR.Game
             tween.SetLoops();
             tween.TweenProperty(_label, "modulate", new Color(Colors.White, 0.3f), 0.4f);
             tween.TweenProperty(_label, "modulate", Colors.White, 0.4f);
+            GetTree().Paused = false;
         }
 
         public override void _Input(InputEvent e)
