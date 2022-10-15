@@ -1,11 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmwu4234mblhd"]
+[gd_scene load_steps=10 format=3 uid="uid://bmwu4234mblhd"]
 
 [ext_resource type="Script" path="res://combat/scrap/Scrap.cs" id="1_1x3r7"]
 [ext_resource type="Texture2D" uid="uid://beuhxvt1s87wn" path="res://UI/scrap.png" id="1_7v7cb"]
 [ext_resource type="Texture2D" uid="uid://wxneddlucnlf" path="res://visuals/loot_shadow.png" id="3_atppj"]
+[ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="4_2wmeb"]
+[ext_resource type="Script" path="res://visuals/lights/Light.cs" id="5_ebh76"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b2vo8"]
 radius = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15n7j"]
+shader = ExtResource("4_2wmeb")
+shader_parameter/flicker = null
+shader_parameter/tint = null
+
+[sub_resource type="Gradient" id="Gradient_6ac7i"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.669725)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4xvhj"]
+gradient = SubResource("Gradient_6ac7i")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Scrap" type="Area2D"]
 texture_filter = 1
@@ -28,3 +47,8 @@ scale = Vector2(0.75, 0.75)
 z_index = -1
 y_sort_enabled = true
 texture = ExtResource("3_atppj")
+
+[node name="LightMask" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_15n7j")
+texture = SubResource("GradientTexture2D_4xvhj")
+script = ExtResource("5_ebh76")

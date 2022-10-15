@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfp2kih57oonm"]
-
-[ext_resource type="Material" uid="uid://c6sjh8d065o3x" path="res://visuals/materials/LightMaterial.tres" id="1_ew83m"]
-
-[node name="Light" type="Sprite2D"]
-material = ExtResource("1_ew83m")

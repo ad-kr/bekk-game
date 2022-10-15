@@ -9,9 +9,10 @@ namespace ADKR.Game
         public override void _Ready()
         {
             base._Ready();
+            Health = 10;
             RunSpeed = 64f;
             Faction = Faction.Robot;
-            
+
             AttackState = new RobotAttackState();
         }
 

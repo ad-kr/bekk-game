@@ -1,7 +1,9 @@
-[gd_scene load_steps=49 format=3 uid="uid://cqoyfn0xroiyq"]
+[gd_scene load_steps=54 format=3 uid="uid://cqoyfn0xroiyq"]
 
 [ext_resource type="Script" path="res://characters/combatable/enemy/robot/Robot.cs" id="1_xr3mf"]
 [ext_resource type="Texture2D" uid="uid://hhqtl1g7yhpn" path="res://characters/combatable/enemy/robot/BlueBot.png" id="2_5jpqr"]
+[ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="3_artfp"]
+[ext_resource type="Script" path="res://visuals/lights/Light.cs" id="4_7dm51"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gi5be"]
 atlas = ExtResource("2_5jpqr")
@@ -216,6 +218,21 @@ animations = [{
 radius = 4.0
 height = 16.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvpyp"]
+shader = ExtResource("3_artfp")
+shader_parameter/flicker = null
+shader_parameter/tint = null
+
+[sub_resource type="Gradient" id="Gradient_2jnmo"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.669725)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t6hyu"]
+gradient = SubResource("Gradient_2jnmo")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Robot" type="CharacterBody2D"]
 texture_filter = 1
 z_index = 1
@@ -236,3 +253,8 @@ shape = SubResource("CapsuleShape2D_qxa0b")
 [node name="NavigationAgent2d" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 106.14
+
+[node name="LightMask" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jvpyp")
+texture = SubResource("GradientTexture2D_t6hyu")
+script = ExtResource("4_7dm51")

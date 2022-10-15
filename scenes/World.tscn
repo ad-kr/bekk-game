@@ -1342,7 +1342,6 @@ patch_margin_bottom = 3
 script = ExtResource("16_xd4is")
 
 [node name="Text" type="RichTextLabel" parent="CanvasLayer/DialogueBox"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1404,14 +1403,12 @@ size_flags_vertical = 4
 script = ExtResource("22_ucjw0")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ScrapCounter"]
-layout_mode = 2
 offset_right = 16.0
 offset_bottom = 23.0
 texture = ExtResource("22_pjlnl")
 stretch_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ScrapCounter"]
-layout_mode = 2
 offset_left = 20.0
 offset_top = 4.0
 offset_right = 64.0
@@ -1429,5 +1426,5 @@ fit_content_height = true
 scroll_active = false
 
 [node name="Respawn" type="Node2D" parent="."]
-position = Vector2(82, -1050)
+position = Vector2(330, -133)
 script = ExtResource("25_j51pw")

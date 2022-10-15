@@ -1,28 +1,33 @@
 using Godot;
 using System;
+using Object = Godot.Object;
 
 namespace ADKR.Game
 {
     public partial class Light : Sprite2D
     {
-        private Texture2D _texture;
-        private readonly Color? _tint;
+        private Node2D _bindedChar;
 
-        public Light(Texture2D texture, Color? tint = null)
+        public override async void _Ready()
         {
-            _texture = texture;
-            _tint = tint;
+            base._Ready();
+            _bindedChar = GetParent<Node2D>();
 
+            await ToSignal(GetTree(), "process_frame");
+
+            _bindedChar.RemoveChild(this);
             ScreenOverlay.Instance.AddChild(this);
         }
 
-        public override void _Ready()
+        public override void _PhysicsProcess(double delta)
         {
-            base._Ready();
-            Material = GD.Load<Material>("res://visuals/materials/LightMaterial.tres");
-
-            Texture ??= _texture;
-            if (_tint != null) ((ShaderMaterial)Material).SetShaderParameter("tint", (Color)_tint);
+            base._Process(delta);
+            if (!IsInstanceValid(_bindedChar))
+            {
+                QueueFree();
+                return;
+            }
+            Position = _bindedChar.Position;
         }
     }
 }
