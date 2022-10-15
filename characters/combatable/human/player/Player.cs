@@ -24,6 +24,8 @@ namespace ADKR.Game
         public override async void _Ready()
         {
             base._Ready();
+            MaxHealth = 1000;
+            Health = 1000;
             State = new PlayerIdleState();
             Faction = Faction.Human;
 
@@ -52,6 +54,20 @@ namespace ADKR.Game
         {
             base.OnHealthChange(health, prevHealth);
             HealthBar.Instance.SetValue(health);
+        }
+
+        public override async void Die()
+        {
+            base.Die();
+            Position = Respawn.Instance.Position;
+            Combatables.Add(this);
+            Health = MaxHealth;
+
+            await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
+
+            Tween tween = CreateTween().SetLoops(10);
+            tween.TweenProperty(Sprite, "modulate", new Color(Colors.White, 0.25f), 0.1f);
+            tween.TweenProperty(Sprite, "modulate", Colors.White, 0.1f);
         }
     }
 }

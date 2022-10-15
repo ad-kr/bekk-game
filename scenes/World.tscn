@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://coerr1lvge045"]
+[gd_scene load_steps=47 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Script" path="res://scenes/World.cs" id="1_y8nst"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://UI/ObjectiveLabel.cs" id="21_j76lj"]
 [ext_resource type="Texture2D" uid="uid://beuhxvt1s87wn" path="res://UI/scrap.png" id="22_pjlnl"]
 [ext_resource type="Script" path="res://UI/ScrapCounter.cs" id="22_ucjw0"]
+[ext_resource type="Script" path="res://tileset/interactable/Respawn.cs" id="25_j51pw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsh0x"]
 shader = ExtResource("2_3h0i1")
@@ -1078,6 +1079,69 @@ position = Vector2(1, 38)
 [node name="Robot" parent="TileMap" instance=ExtResource("4_mgnae")]
 position = Vector2(135, 74)
 
+[node name="Robot2" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(156, 80)
+
+[node name="Robot3" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(119, 92)
+
+[node name="Robot4" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(139, 94)
+
+[node name="Robot5" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(176, 95)
+
+[node name="Robot6" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(177, 72)
+
+[node name="Robot7" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(153, 53)
+
+[node name="Robot8" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(123, 54)
+
+[node name="Robot9" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(111, 67)
+
+[node name="Robot10" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(107, 110)
+
+[node name="Robot11" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(137, 119)
+
+[node name="Robot12" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(159, 110)
+
+[node name="Robot13" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(85, 118)
+
+[node name="Robot14" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(67, 128)
+
+[node name="Robot15" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(112, 130)
+
+[node name="Robot16" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(138, 141)
+
+[node name="Robot17" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(91, 139)
+
+[node name="Robot18" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(110, 148)
+
+[node name="Robot19" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(105, 40)
+
+[node name="Robot20" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(133, 37)
+
+[node name="Robot21" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(158, 35)
+
+[node name="Robot22" parent="TileMap" instance=ExtResource("4_mgnae")]
+position = Vector2(178, 48)
+
 [node name="Chairs" type="Node2D" parent="TileMap"]
 y_sort_enabled = true
 
@@ -1363,3 +1427,7 @@ bbcode_enabled = true
 text = "23"
 fit_content_height = true
 scroll_active = false
+
+[node name="Respawn" type="Node2D" parent="."]
+position = Vector2(82, -1050)
+script = ExtResource("25_j51pw")
