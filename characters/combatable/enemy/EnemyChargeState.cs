@@ -31,11 +31,19 @@ namespace ADKR.Game
             }
 
             float dist = Char.Position.DistanceTo(Char.Target.Position);
+            Char.IsFlipped = IsFlipped(Char.Position - Char.Target.Position);
 
             if (dist <= Char.AttackRadius) return;
 
             Char.State = Char.RunState;
             _isCancelled = true;
+        }
+
+        private bool IsFlipped(Vector2 dir)
+        {
+            if (dir.x == 0) return Char.Sprite.FlipH;
+            if (dir.x > 0f) return false;
+            return true;
         }
     }
 }

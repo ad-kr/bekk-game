@@ -27,6 +27,10 @@ namespace ADKR.Game
                 return;
             }
 
+            Char.Sprite.Animation = "charge";
+            Char.Sprite.Playing = false;
+            Char.Sprite.Frame = 20;
+
             _attackCooldown = AttackCooldownDuration;
             _laserPos = default;
             _laserVelocity = Vector2.Zero;
@@ -74,6 +78,9 @@ namespace ADKR.Game
             _laserPos += _laserVelocity * (float)delta;
             _laser.Target = _laserPos - Char.Position;
 
+            Char.IsFlipped = IsFlipped(Char.Position - Char.Target.Position);
+            _laser.Offset = new Vector2(Char.IsFlipped ? 2f : -2f, -2f);
+
             _attackCooldown += (float)delta;
             if (_attackCooldown * 1000f < AttackCooldownDuration) return;
 
@@ -83,6 +90,13 @@ namespace ADKR.Game
                 _attackCooldown = 0f;
                 _attack.Execute();
             }
+        }
+
+        private bool IsFlipped(Vector2 dir)
+        {
+            if (dir.x == 0) return Char.Sprite.FlipH;
+            if (dir.x > 0f) return false;
+            return true;
         }
 
         public override void End()

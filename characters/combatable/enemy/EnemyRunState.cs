@@ -59,9 +59,18 @@ namespace ADKR.Game
             Vector2 desiredVelocity = dir * Char.RunSpeed;
             Vector2 steering = (desiredVelocity - Char.Velocity) * (float)delta;
 
+
             Char.Velocity += steering;
+            Char.IsFlipped = IsFlipped(Char.Velocity.Normalized() * -1f);
 
             Char.MoveAndSlide();
+        }
+
+        private bool IsFlipped(Vector2 dir)
+        {
+            if (dir.x == 0) return Char.Sprite.FlipH;
+            if (dir.x > 0f) return false;
+            return true;
         }
     }
 }

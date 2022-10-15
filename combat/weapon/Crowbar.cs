@@ -59,8 +59,6 @@ namespace ADKR.Game
                 }
             }
 
-            GD.Print(dir);
-
             Attack attack = new(new AttackOptions()
             {
                 MinDamage = 3f,
