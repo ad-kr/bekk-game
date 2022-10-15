@@ -40,7 +40,7 @@ namespace ADKR.Game
                 return;
             }
 
-            World.RefreshTimer();
+            TimeoutReminder.RefreshTimer();
 
             _count += (float)delta;
 

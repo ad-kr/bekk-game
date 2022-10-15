@@ -35,7 +35,7 @@ namespace ADKR.Game
 				return;
             }
 
-            World.RefreshTimer();
+            TimeoutReminder.RefreshTimer();
 
 			Char.Sprite.Playing = true;
             Char.Velocity = dir * Char.RunSpeed * 0.5f;
