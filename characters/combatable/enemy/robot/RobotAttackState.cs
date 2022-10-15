@@ -15,7 +15,7 @@ namespace ADKR.Game
         private float _attackCooldown = 500f;
         private const float AttackCooldownDuration = 500f;
 
-        private Sprite2D debugCircle;
+        private Laser _laser;
 
         public override void Start()
         {
@@ -47,8 +47,9 @@ namespace ADKR.Game
 
             Vector2 dir = Char.GlobalPosition.DirectionTo(Char.Target.Position);
             _laserPos = Char.Position + dir * 16f;
-            debugCircle = GD.Load<PackedScene>("res://debug/DebugPoint.tscn").Instantiate<Sprite2D>();
-            ScreenOverlay.Instance.AddChild(debugCircle);
+            _laser = GD.Load<PackedScene>("res://characters/combatable/enemy/robot/Laser.tscn").Instantiate<Laser>();
+            _laser.Offset = new Vector2(-2f, -2f);
+            Char.AddChild(_laser);
         }
 
         public override void Update(double delta)
@@ -71,7 +72,7 @@ namespace ADKR.Game
             Vector2 dir = _laserPos.DirectionTo(Char.Target.Position);
             _laserVelocity = dir * _laserSpeed;
             _laserPos += _laserVelocity * (float)delta;
-            debugCircle.Position = _laserPos;
+            _laser.Target = _laserPos - Char.Position;
 
             _attackCooldown += (float)delta;
             if (_attackCooldown * 1000f < AttackCooldownDuration) return;
@@ -87,7 +88,7 @@ namespace ADKR.Game
         public override void End()
         {
             base.End();
-            if (Object.IsInstanceValid(debugCircle)) debugCircle?.QueueFree();
+            if (Object.IsInstanceValid(_laser)) _laser?.QueueFree();
         }
     }
 }

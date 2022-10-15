@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4j27t0rv1djo"]
+
+[ext_resource type="Texture2D" uid="uid://bdj76kfxavdmd" path="res://characters/combatable/enemy/robot/laser.png" id="1_ant20"]
+[ext_resource type="Script" path="res://characters/combatable/enemy/robot/Laser.cs" id="2_6jlpe"]
+[ext_resource type="Texture2D" uid="uid://brwf5cxssqs3p" path="res://characters/combatable/enemy/robot/laser_hit.png" id="3_2nqm6"]
+
+[sub_resource type="Gradient" id="Gradient_l4tlf"]
+colors = PackedColorArray(5, 5, 5, 1, 1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj0ds"]
+atlas = ExtResource("3_2nqm6")
+region = Rect2(0, 0, 14, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxscv"]
+atlas = ExtResource("3_2nqm6")
+region = Rect2(14, 0, 14, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd3af"]
+atlas = ExtResource("3_2nqm6")
+region = Rect2(28, 0, 14, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4eed"]
+animations = [{
+"frames": [SubResource("AtlasTexture_qj0ds"), SubResource("AtlasTexture_xxscv"), SubResource("AtlasTexture_xd3af")],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Laser" type="Line2D"]
+texture_filter = 1
+texture_repeat = 2
+z_index = 1
+y_sort_enabled = true
+points = PackedVector2Array(0, 0, 64, 0)
+width = 3.0
+gradient = SubResource("Gradient_l4tlf")
+texture = ExtResource("1_ant20")
+texture_mode = 1
+script = ExtResource("2_6jlpe")
+
+[node name="LaserHit" type="AnimatedSprite2D" parent="."]
+position = Vector2(64, -5)
+z_index = 1
+frames = SubResource("SpriteFrames_c4eed")
+playing = true
