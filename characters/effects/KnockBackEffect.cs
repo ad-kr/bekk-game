@@ -33,6 +33,7 @@ namespace ADKR.Game
                 impulse = _dir * Char.RunSpeed * 500f * value * delta;
 
                 Char.Velocity += impulse;
+                if (Char.Velocity.Length() > Char.RunSpeed * 4f) Char.Velocity = Char.Velocity.Normalized() * Char.RunSpeed * 4f;
                 Char.MoveAndSlide();
             }, 1f, 0f, 0.3f);
 
