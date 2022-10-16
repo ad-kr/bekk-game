@@ -3,7 +3,7 @@ using System;
 
 namespace ADKR.Game
 {
-    public partial class Game : Node
+    public partial class Game : Node2D
     {
         public static Game Instance { get; set; }
 

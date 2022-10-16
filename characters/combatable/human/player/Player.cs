@@ -40,13 +40,11 @@ namespace ADKR.Game
         public override void _Input(InputEvent e)
         {
             base._Input(e);
-            if (EquippedWeapon != null && e is InputEventMouseButton mouseEvent && e.IsActionPressed("attack"))
+            if (EquippedWeapon != null && e.IsActionPressed("attack"))
             {
                 if (State is PlayerAttackState) return;
-                Vector2 dir = mouseEvent.Position - (GetViewportRect().Size / 2f);
-                dir = dir.Normalized();
 
-                State = new PlayerAttackState(dir);
+                State = new PlayerAttackState(InputHandler.GetMouseDir());
             }
         }
 

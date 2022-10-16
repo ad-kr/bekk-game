@@ -12,5 +12,12 @@ namespace ADKR.Game
 
             return new Vector2(xAxis, yAxis).Normalized();
         }
+
+        public static Vector2 GetMouseDir()
+        {
+            Vector2 dir = Game.Instance.GetViewport().GetMousePosition() - (Game.Instance.GetViewportRect().Size / 2f);
+            dir = dir.Normalized();
+            return dir;
+        }
     }
 }

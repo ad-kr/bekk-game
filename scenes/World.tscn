@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://coerr1lvge045"]
+[gd_scene load_steps=52 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Script" path="res://scenes/World.cs" id="1_y8nst"]
@@ -26,6 +26,9 @@
 [ext_resource type="Script" path="res://UI/ScrapCounter.cs" id="22_ucjw0"]
 [ext_resource type="Script" path="res://tileset/interactable/Respawn.cs" id="25_j51pw"]
 [ext_resource type="Script" path="res://UI/ESCMenu.cs" id="25_vuqyb"]
+[ext_resource type="PackedScene" uid="uid://cvffg8x2hyuwn" path="res://characters/combatable/enemy/crawler/Crawler.tscn" id="27_8ggti"]
+[ext_resource type="Texture2D" uid="uid://cjqktiivm2s46" path="res://UI/pointer.png" id="27_o1p1r"]
+[ext_resource type="Script" path="res://UI/AimIndicator.cs" id="27_q57rl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsh0x"]
 shader = ExtResource("2_3h0i1")
@@ -1076,7 +1079,7 @@ layer_6/z_index = 20
 layer_6/tile_data = PackedInt32Array(-393213, 131072, 9, -393215, 131072, 9, -327681, 131072, 9, -327683, 131072, 9, -393211, 131072, 9, -393209, 131072, 9)
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_im5d0")]
-position = Vector2(1, 38)
+position = Vector2(-93, -82)
 
 [node name="Robot" parent="TileMap" instance=ExtResource("4_mgnae")]
 position = Vector2(135, 74)
@@ -1297,6 +1300,69 @@ position = Vector2(-315, 29)
 [node name="Chair2" parent="TileMap/Chairs" instance=ExtResource("6_jhutv")]
 position = Vector2(-317, -43)
 
+[node name="Crawler" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(25, -297)
+
+[node name="Crawler2" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(56, -320)
+
+[node name="Crawler3" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(44, -346)
+
+[node name="Crawler4" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(18, -323)
+
+[node name="Crawler5" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(43, -372)
+
+[node name="Crawler6" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(80, -356)
+
+[node name="Crawler7" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(86, -320)
+
+[node name="Crawler8" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(98, -359)
+
+[node name="Crawler9" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(104, -329)
+
+[node name="Crawler10" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(72, -386)
+
+[node name="Crawler11" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(22, -396)
+
+[node name="Crawler12" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(-7, -377)
+
+[node name="Crawler13" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(-12, -349)
+
+[node name="Crawler14" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(19, -361)
+
+[node name="Crawler15" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(7, -338)
+
+[node name="Crawler16" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(-6, -322)
+
+[node name="Crawler17" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(-4, -290)
+
+[node name="Crawler18" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(44, -264)
+
+[node name="Crawler19" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(72, -287)
+
+[node name="Crawler20" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(46, -293)
+
+[node name="Crawler21" parent="TileMap" instance=ExtResource("27_8ggti")]
+position = Vector2(60, -302)
+
 [node name="WorkshopInteractable" type="Area2D" parent="."]
 top_level = true
 position = Vector2(37, -1087)
@@ -1486,6 +1552,31 @@ text = "[center]Spiller du fortsatt?"
 fit_content_height = true
 scroll_active = false
 script = ExtResource("20_6dvcr")
+
+[node name="AimIndicator" type="Control" parent="CanvasLayer"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("27_q57rl")
+
+[node name="Indicator" type="TextureRect" parent="CanvasLayer/AimIndicator"]
+modulate = Color(1, 1, 1, 0.462745)
+layout_mode = 0
+offset_top = -4.0
+offset_right = 61.0
+offset_bottom = 4.0
+rotation = 1.5708
+pivot_offset = Vector2(0, 4)
+texture = ExtResource("27_o1p1r")
+stretch_mode = 5
 
 [node name="Respawn" type="Node2D" parent="."]
 position = Vector2(330, -133)
