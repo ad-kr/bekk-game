@@ -15,6 +15,7 @@ namespace ADKR.Game
             Char.Sprite.Animation = "land";
             Char.Sprite.Playing = true;
             Char.ZIndex = 1;
+            Char.Invincible = false;
 
             await Char.ToSignal(Char.Sprite, "animation_finished");
 

@@ -25,6 +25,8 @@ namespace ADKR.Game
         public bool IsDead { get => Health <= 0f; }
 
         public Faction Faction { get; set; }
+        
+        public bool Invincible { get; set; } = false;
 
         public override void _Ready()
         {

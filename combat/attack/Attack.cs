@@ -19,6 +19,7 @@ namespace ADKR.Game
             GD.Randomize();
             foreach (Combatable target in _targets)
             {
+                if (target.Invincible) continue;
                 float damage = (float)GD.RandRange(_options.MinDamage, _options.MaxDamage);
                 target.Health -= damage * delta;
                 _options.OnHit?.Invoke(target, damage);

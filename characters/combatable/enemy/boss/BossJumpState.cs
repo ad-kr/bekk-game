@@ -18,6 +18,7 @@ namespace ADKR.Game
             Char.Sprite.Animation = "jump";
             Char.Sprite.Playing = true;
             Char.ZIndex = 10;
+            Char.Invincible = true;
 
             await Char.ToSignal(Char.Sprite, "frame_changed");
 
