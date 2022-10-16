@@ -223,13 +223,13 @@ shader = ExtResource("3_artfp")
 shader_parameter/flicker = null
 shader_parameter/tint = null
 
-[sub_resource type="Gradient" id="Gradient_k1663"]
+[sub_resource type="Gradient" id="Gradient_14a2n"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.669725)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t6hyu"]
-gradient = SubResource("Gradient_k1663")
+gradient = SubResource("Gradient_14a2n")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 

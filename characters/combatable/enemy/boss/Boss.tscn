@@ -1,8 +1,10 @@
-[gd_scene load_steps=73 format=3 uid="uid://ewnwih7ah7u0"]
+[gd_scene load_steps=80 format=3 uid="uid://ewnwih7ah7u0"]
 
 [ext_resource type="Texture2D" uid="uid://dtp0cmuyrxvcl" path="res://characters/combatable/enemy/boss/boss.png" id="1_unw5k"]
 [ext_resource type="Script" path="res://characters/combatable/enemy/boss/Boss.cs" id="1_uplmx"]
 [ext_resource type="Texture2D" uid="uid://djsx32as6yt0r" path="res://characters/combatable/enemy/boss/boss_death.png" id="2_ci7lb"]
+[ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="4_88ybq"]
+[ext_resource type="Script" path="res://visuals/lights/Light.cs" id="5_ihd81"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4c6aw"]
 atlas = ExtResource("1_unw5k")
@@ -285,7 +287,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [SubResource("AtlasTexture_otbet"), SubResource("AtlasTexture_o8d8g"), SubResource("AtlasTexture_xnxw0"), SubResource("AtlasTexture_vcm0s"), SubResource("AtlasTexture_8d3ub"), SubResource("AtlasTexture_0ablb"), SubResource("AtlasTexture_uj7hg"), SubResource("AtlasTexture_kcgw7"), SubResource("AtlasTexture_k44h5"), SubResource("AtlasTexture_7xs0p"), SubResource("AtlasTexture_83i2w"), SubResource("AtlasTexture_h5tvt"), SubResource("AtlasTexture_3xesq"), SubResource("AtlasTexture_0461m"), SubResource("AtlasTexture_4ijdb"), SubResource("AtlasTexture_ssscg"), SubResource("AtlasTexture_hv6o6"), SubResource("AtlasTexture_rbwwx"), SubResource("AtlasTexture_wxqlw"), SubResource("AtlasTexture_umghm"), SubResource("AtlasTexture_t20yu"), SubResource("AtlasTexture_mm2t0"), SubResource("AtlasTexture_ls0ko"), SubResource("AtlasTexture_neu5y"), SubResource("AtlasTexture_nyn8m"), SubResource("AtlasTexture_birna"), SubResource("AtlasTexture_wvkt3")],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 8.0
 }, {
@@ -309,6 +311,35 @@ animations = [{
 custom_solver_bias = 1.0
 size = Vector2(54, 47)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15h4t"]
+shader = ExtResource("4_88ybq")
+shader_parameter/flicker = null
+shader_parameter/tint = null
+
+[sub_resource type="Gradient" id="Gradient_k1663"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.669725)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0lvau"]
+gradient = SubResource("Gradient_k1663")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_6skxa"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.431193, 0.678899, 0.706422)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.498039, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_whgbg"]
+gradient = SubResource("Gradient_6skxa")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Boss" type="CharacterBody2D"]
 texture_filter = 1
 z_index = 1
@@ -328,3 +359,13 @@ shape = SubResource("RectangleShape2D_isp1g")
 [node name="NavigationAgent2d" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 106.14
+
+[node name="LightMask" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_15h4t")
+position = Vector2(0, -16)
+texture = SubResource("GradientTexture2D_0lvau")
+script = ExtResource("5_ihd81")
+
+[node name="Puff" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = SubResource("GradientTexture2D_whgbg")

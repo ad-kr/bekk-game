@@ -5,10 +5,18 @@ namespace ADKR.Game
 {
     public partial class Boss : Enemy
     {
+
+        public Sprite2D Puff { get; set; }
+
         public override void _Ready()
         {
             base._Ready();
-            // RunSpeed = 32f;
+
+            Puff = GetNode<Sprite2D>("Puff");
+            Puff.Scale = new Vector2(0.1f, 0.1f);
+            Puff.Visible = false;
+
+            RunSpeed = 96f;
             Faction = Faction.Robot;
             State = new BossIdleState();
             Invincible = true;
