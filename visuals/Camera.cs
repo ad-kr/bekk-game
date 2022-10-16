@@ -18,7 +18,7 @@ namespace ADKR.Game
 
             parent.RemoveChild(Instance);
 
-            Instance.Position = parent.Position - node.Position;
+            Instance.Position = parent.GlobalPosition - node.GlobalPosition;
 
             node.AddChild(Instance);
 			

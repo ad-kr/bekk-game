@@ -48,7 +48,7 @@ namespace ADKR.Game
         public override void _Input(InputEvent e)
         {
             base._Input(e);
-            if (EquippedWeapon != null && e.IsActionPressed("attack"))
+            if (EquippedWeapon != null && e.IsActionPressed("attack") && State is not PlayerEmptyState)
             {
                 if (State is PlayerAttackState) return;
 

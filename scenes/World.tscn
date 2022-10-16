@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://coerr1lvge045"]
+[gd_scene load_steps=58 format=3 uid="uid://coerr1lvge045"]
 
 [ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Script" path="res://scenes/World.cs" id="1_y8nst"]
@@ -19,7 +19,9 @@
 [ext_resource type="Script" path="res://UI/HealthBar.cs" id="14_ciktf"]
 [ext_resource type="Texture2D" uid="uid://dve4yt6wcdc28" path="res://UI/dialogue_rect.png" id="15_fdlnj"]
 [ext_resource type="FontFile" uid="uid://cxo3mr755tp2w" path="res://fonts/OpenSansPX.ttf" id="16_hh5nu"]
+[ext_resource type="Script" path="res://tileset/interactable/ControlStation.cs" id="16_pt00g"]
 [ext_resource type="Script" path="res://UI/DialogueBox.cs" id="16_xd4is"]
+[ext_resource type="Texture2D" uid="uid://ox7y287pbtoi" path="res://tileset/interactable/control_light.png" id="17_7tr7w"]
 [ext_resource type="FontFile" uid="uid://irdx4k51l5t7" path="res://fonts/OpenSansPXBold.ttf" id="19_e677v"]
 [ext_resource type="Script" path="res://UI/TimeoutReminder.cs" id="20_6dvcr"]
 [ext_resource type="Script" path="res://UI/ObjectiveLabel.cs" id="21_j76lj"]
@@ -119,6 +121,9 @@ fill_from = Vector2(0.5, 0.5)
 shader = ExtResource("2_3h0i1")
 shader_parameter/flicker = 0.0
 shader_parameter/tint = Color(0.87451, 1, 0.894118, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cub7e"]
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48vv7"]
 radius = 87.0517
@@ -1335,6 +1340,66 @@ position = Vector2(25, -297)
 [node name="Boss" parent="TileMap" instance=ExtResource("31_rwua5")]
 position = Vector2(48, -343)
 
+[node name="Punkt 2" type="Area2D" parent="TileMap"]
+position = Vector2(-216, -151)
+z_index = 9
+y_sort_enabled = true
+script = ExtResource("16_pt00g")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="TileMap/Punkt 2"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_cub7e")
+
+[node name="Light" type="Sprite2D" parent="TileMap/Punkt 2"]
+position = Vector2(261, -177)
+texture = ExtResource("17_7tr7w")
+
+[node name="Punkt 1" type="Area2D" parent="TileMap"]
+position = Vector2(328, 391)
+z_index = 9
+y_sort_enabled = true
+script = ExtResource("16_pt00g")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="TileMap/Punkt 1"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_cub7e")
+
+[node name="Light" type="Sprite2D" parent="TileMap/Punkt 1"]
+position = Vector2(-289, -719)
+texture = ExtResource("17_7tr7w")
+
+[node name="Punkt 3" type="Area2D" parent="TileMap"]
+position = Vector2(-152, -570)
+z_index = 9
+y_sort_enabled = true
+script = ExtResource("16_pt00g")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="TileMap/Punkt 3"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_cub7e")
+
+[node name="Light" type="Sprite2D" parent="TileMap/Punkt 3"]
+position = Vector2(203, 242)
+texture = ExtResource("17_7tr7w")
+
+[node name="Punkt 4" type="Area2D" parent="TileMap"]
+position = Vector2(296, -1129)
+z_index = 9
+y_sort_enabled = true
+script = ExtResource("16_pt00g")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="TileMap/Punkt 4"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_cub7e")
+
+[node name="Light" type="Sprite2D" parent="TileMap/Punkt 4"]
+position = Vector2(-239, 801)
+texture = ExtResource("17_7tr7w")
+
 [node name="WorkshopInteractable" type="Area2D" parent="."]
 top_level = true
 position = Vector2(37, -1087)
@@ -1382,6 +1447,7 @@ patch_margin_bottom = 3
 script = ExtResource("16_xd4is")
 
 [node name="Text" type="RichTextLabel" parent="CanvasLayer/DialogueBox"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1425,12 +1491,14 @@ size_flags_vertical = 4
 script = ExtResource("22_ucjw0")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ScrapCounter"]
+layout_mode = 2
 offset_right = 16.0
 offset_bottom = 23.0
 texture = ExtResource("22_pjlnl")
 stretch_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ScrapCounter"]
+layout_mode = 2
 offset_left = 20.0
 offset_top = 4.0
 offset_right = 64.0
@@ -1460,6 +1528,7 @@ grow_vertical = 2
 script = ExtResource("25_vuqyb")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/ESCMenu"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1468,6 +1537,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ESC-label" type="RichTextLabel" parent="CanvasLayer/ESCMenu"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1484,6 +1554,7 @@ bbcode_enabled = true
 text = "[center]Tilbake til spilet [ESC]"
 
 [node name="R-label" type="RichTextLabel" parent="CanvasLayer/ESCMenu"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1535,6 +1606,7 @@ script = ExtResource("27_q57rl")
 
 [node name="Indicator" type="TextureRect" parent="CanvasLayer/AimIndicator"]
 modulate = Color(1, 1, 1, 0.462745)
+layout_mode = 0
 offset_top = -4.0
 offset_right = 61.0
 offset_bottom = 4.0
