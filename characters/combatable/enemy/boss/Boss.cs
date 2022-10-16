@@ -11,6 +11,7 @@ namespace ADKR.Game
             // RunSpeed = 32f;
             Faction = Faction.Robot;
             State = new BossIdleState();
+            Invincible = true;
         }
     }
 }
