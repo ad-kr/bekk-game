@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://ewnwih7ah7u0"]
+[gd_scene load_steps=73 format=3 uid="uid://ewnwih7ah7u0"]
 
 [ext_resource type="Texture2D" uid="uid://dtp0cmuyrxvcl" path="res://characters/combatable/enemy/boss/boss.png" id="1_unw5k"]
 [ext_resource type="Script" path="res://characters/combatable/enemy/boss/Boss.cs" id="1_uplmx"]
@@ -216,6 +216,14 @@ region = Rect2(1404, 0, 54, 90)
 atlas = ExtResource("1_unw5k")
 region = Rect2(0, 0, 54, 90)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dpit"]
+atlas = ExtResource("1_unw5k")
+region = Rect2(1404, 0, 54, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdlp2"]
+atlas = ExtResource("1_unw5k")
+region = Rect2(1458, 0, 54, 90)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xo0ak"]
 atlas = ExtResource("1_unw5k")
 region = Rect2(1512, 0, 54, 90)
@@ -267,12 +275,12 @@ region = Rect2(2106, 0, 54, 90)
 [sub_resource type="SpriteFrames" id="SpriteFrames_5strq"]
 animations = [{
 "frames": [SubResource("AtlasTexture_4c6aw"), SubResource("AtlasTexture_r3kl6"), SubResource("AtlasTexture_622tg"), SubResource("AtlasTexture_0co3v"), SubResource("AtlasTexture_dodd2"), SubResource("AtlasTexture_kh88t"), SubResource("AtlasTexture_a31vq"), SubResource("AtlasTexture_325m0"), SubResource("AtlasTexture_c3cih"), SubResource("AtlasTexture_gbd77"), SubResource("AtlasTexture_wtwo2"), SubResource("AtlasTexture_fmddq"), SubResource("AtlasTexture_rt2qn"), SubResource("AtlasTexture_aeww0"), SubResource("AtlasTexture_y5s7h"), SubResource("AtlasTexture_36uxy"), SubResource("AtlasTexture_fwyqi"), SubResource("AtlasTexture_h2i3c"), SubResource("AtlasTexture_3p60s")],
-"loop": true,
+"loop": false,
 "name": &"activate",
 "speed": 8.0
 }, {
 "frames": [SubResource("AtlasTexture_r0lvm"), SubResource("AtlasTexture_06ogg"), SubResource("AtlasTexture_qrmis"), SubResource("AtlasTexture_0gc86"), SubResource("AtlasTexture_emuyr"), SubResource("AtlasTexture_xac2h")],
-"loop": true,
+"loop": false,
 "name": &"charge",
 "speed": 5.0
 }, {
@@ -286,18 +294,19 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [SubResource("AtlasTexture_7dpit"), SubResource("AtlasTexture_jdlp2")],
+"loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
 "frames": [SubResource("AtlasTexture_xo0ak"), SubResource("AtlasTexture_i27ta"), SubResource("AtlasTexture_j3knw"), SubResource("AtlasTexture_na3ej"), SubResource("AtlasTexture_sk44q"), SubResource("AtlasTexture_we043"), SubResource("AtlasTexture_l80eh"), SubResource("AtlasTexture_yn7sq"), SubResource("AtlasTexture_5t3bx"), SubResource("AtlasTexture_o5c3i"), SubResource("AtlasTexture_p40ar"), SubResource("AtlasTexture_gucfh")],
-"loop": true,
+"loop": false,
 "name": &"land",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isp1g"]
+custom_solver_bias = 1.0
 size = Vector2(54, 47)
 
 [node name="Boss" type="CharacterBody2D"]
@@ -306,11 +315,16 @@ z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_uplmx")
 
-[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_5strq")
 animation = &"idle"
 playing = true
+offset = Vector2(0, -36)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(0, 21.5)
+position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_isp1g")
+
+[node name="NavigationAgent2d" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 106.14

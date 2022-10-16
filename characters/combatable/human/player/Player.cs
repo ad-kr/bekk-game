@@ -5,6 +5,9 @@ namespace ADKR.Game
 {
     public partial class Player : Human
     {
+
+        public static Player Instance { get; set; }
+
         private Weapon _equippedWeapon = null;
 
         public Weapon EquippedWeapon
@@ -19,6 +22,11 @@ namespace ADKR.Game
                 _equippedWeapon.BottomHand = BottomHand;
                 TopHand.HandSprite.AddChild(value);
             }
+        }
+
+        public Player()
+        {
+            Instance = this;
         }
 
         public override async void _Ready()
