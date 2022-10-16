@@ -1011,7 +1011,7 @@ texture = SubResource("GradientTexture2D_uosxm")
 
 [node name="GradientMaskSmall3" type="Sprite2D" parent="BackBufferCopy/GradientMasks"]
 material = SubResource("ShaderMaterial_3bs12")
-position = Vector2(40, -344)
+position = Vector2(48, -343)
 texture = SubResource("GradientTexture2D_uosxm")
 
 [node name="GradientMaskSmall4" type="Sprite2D" parent="BackBufferCopy/GradientMasks"]
@@ -1333,7 +1333,7 @@ position = Vector2(-317, -43)
 position = Vector2(25, -297)
 
 [node name="Boss" parent="TileMap" instance=ExtResource("31_rwua5")]
-position = Vector2(48, -329)
+position = Vector2(48, -343)
 
 [node name="WorkshopInteractable" type="Area2D" parent="."]
 top_level = true

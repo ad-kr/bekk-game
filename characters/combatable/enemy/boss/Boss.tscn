@@ -316,13 +316,13 @@ y_sort_enabled = true
 script = ExtResource("1_uplmx")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 14)
 frames = SubResource("SpriteFrames_5strq")
 animation = &"idle"
 playing = true
 offset = Vector2(0, -36)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_isp1g")
 
 [node name="NavigationAgent2d" type="NavigationAgent2D" parent="."]

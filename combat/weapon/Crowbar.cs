@@ -50,7 +50,7 @@ namespace ADKR.Game
                 if (FactionValidator.GetRelation(Player.Faction, combatable.Faction) != FactionRelation.Hostile) continue;
                 float dist = Player.Position.DistanceTo(combatable.Position);
 
-                if (dist <= AttackRadius)
+                if (dist <= AttackRadius || (combatable is Boss && dist <= AttackRadius * 2f))
                 {
                     float angleTo = dir.AngleTo(combatable.Position - Player.Position);
                     angleTo = Mathf.RadToDeg(angleTo);
