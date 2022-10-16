@@ -5,7 +5,6 @@ namespace ADKR.Game
 {
     public partial class Robot : Enemy
     {
-
         public override void _Ready()
         {
             base._Ready();
@@ -14,11 +13,6 @@ namespace ADKR.Game
             Faction = Faction.Robot;
 
             AttackState = new RobotAttackState();
-        }
-
-        public override void _Process(double delta)
-        {
-            base._Process(delta);
         }
     }
 }
