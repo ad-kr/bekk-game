@@ -9,10 +9,17 @@ namespace ADKR.Game
 
         private const int CrawlerAmount = 7;
 
-        public override void Start()
+        public override async void Start()
         {
             base.Start();
             Instruction = "Defeat the boss to proceed";
+
+            await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(0.4f), "timeout");
+
+            await ShakeScreen();
+
+            await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(1f), "timeout");
+
             Boss.Instance.State = new BossActivateState();
 
             PackedScene crawlerPrefab = ResourceLoader.Load<PackedScene>("res://characters/combatable/enemy/crawler/Crawler.tscn");
@@ -33,6 +40,24 @@ namespace ADKR.Game
             parent.AddChild(instance);
 
             SpawnCrawler(left - 1, prefab, parent);
+        }
+
+        private static SignalAwaiter ShakeScreen()
+        {
+            GD.Randomize();
+            Vector2 rand1 = new Vector2((float)GD.RandRange(-1f, 1f), (float)GD.RandRange(-1f, 1f)).Normalized() * (float)GD.RandRange(4f, 8f);
+            Vector2 rand2 = new Vector2((float)GD.RandRange(-1f, 1f), (float)GD.RandRange(-1f, 1f)).Normalized() * (float)GD.RandRange(4f, 8f);
+            Tween tween = Game.Instance.CreateTween();
+
+            const float Duration = 0.1f;
+            tween.TweenProperty(Camera.Instance, "offset", rand1, Duration);
+            tween.TweenProperty(Camera.Instance, "offset", rand2, Duration);
+            tween.TweenProperty(Camera.Instance, "offset", Vector2.Zero, Duration);
+            tween.TweenProperty(Camera.Instance, "offset", rand1, Duration);
+            tween.TweenProperty(Camera.Instance, "offset", rand2, Duration);
+            tween.TweenProperty(Camera.Instance, "offset", Vector2.Zero, Duration);
+
+            return Game.Instance.ToSignal(tween, "finished");
         }
     }
 }
