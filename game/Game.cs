@@ -17,6 +17,11 @@ namespace ADKR.Game
             Instance.GetTree().ChangeSceneToFile("res://scenes/MainMenu.tscn");
         }
 
+        public static void LoadRandomizer()
+        {
+            Instance.GetTree().ChangeSceneToFile("res://scenes/RandomizePlayer.tscn");
+        }
+
         public static void LoadWorld()
         {
             Instance.GetTree().ChangeSceneToFile("res://scenes/World.tscn");

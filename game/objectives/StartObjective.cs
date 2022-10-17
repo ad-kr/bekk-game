@@ -5,10 +5,12 @@ namespace ADKR.Game
 {
     public class StartObjective : Objective
     {
-        public override void Start()
+        public override async void Start()
         {
             base.Start();
             Instruction = "this is the first objective :)";
+            await Game.Instance.ToSignal(Game.Instance.GetTree(), "process_frame");
+            Player.Instance.State = new PlayerIdleState();
         }
     }
 }

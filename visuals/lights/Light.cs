@@ -16,7 +16,7 @@ namespace ADKR.Game
             await ToSignal(GetTree(), "process_frame");
 
             _bindedChar.RemoveChild(this);
-            ScreenOverlay.Instance.AddChild(this);
+            if (IsInstanceValid(ScreenOverlay.Instance)) ScreenOverlay.Instance?.AddChild(this);
         }
 
         public override void _PhysicsProcess(double delta)

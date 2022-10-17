@@ -25,7 +25,7 @@ namespace ADKR.Game
             Clothes = Sprite.GetNode<AnimatedSprite2D>("Clothes");
             Hair = Clothes.GetNode<AnimatedSprite2D>("Hair");
 
-            RandomizeSprite();
+            SetSpriteLayers();
 
             TopHand = new(handTexture);
             BottomHand = new(handTexture);
@@ -57,6 +57,7 @@ namespace ADKR.Game
             Texture2D skinTex = GD.Load<Texture2D>($"res://characters/combatable/human/player/sprites/skin{SkinID}.png");
             Texture2D hairTex = GD.Load<Texture2D>($"res://characters/combatable/human/player/sprites/hair{HairID}.png");
             Texture2D clothesTex = GD.Load<Texture2D>($"res://characters/combatable/human/player/sprites/clothes{ClothesID}.png");
+
             for (int i = 0; i < 6; i++)
             {
                 AtlasTexture skinAtlas = new()

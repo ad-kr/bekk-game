@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl0bsgxrkacjk"]
+
+[ext_resource type="Script" path="res://scenes/RandomizePlayer.cs" id="1_16dhy"]
+[ext_resource type="FontFile" uid="uid://cxo3mr755tp2w" path="res://fonts/OpenSansPX.ttf" id="1_gasqg"]
+[ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="3_o5igd"]
+
+[sub_resource type="Theme" id="Theme_uy0x0"]
+default_font = ExtResource("1_gasqg")
+
+[node name="RandomizePlayer" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_16dhy")
+metadata/_edit_horizontal_guides_ = [198.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 101.0
+offset_top = 206.0
+offset_right = 61.0
+offset_bottom = 234.0
+grow_horizontal = 2
+theme = SubResource("Theme_uy0x0")
+bbcode_enabled = true
+text = "[center][R] Bytt utseende"
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -51.0
+offset_top = 206.0
+offset_right = -91.0
+offset_bottom = 234.0
+grow_horizontal = 2
+theme = SubResource("Theme_uy0x0")
+bbcode_enabled = true
+text = "[center][E] Start spillet"
+scroll_active = false
+
+[node name="Player" parent="." instance=ExtResource("3_o5igd")]
+position = Vector2(240, 135)
+scale = Vector2(2, 2)

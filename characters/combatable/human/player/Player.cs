@@ -26,6 +26,12 @@ namespace ADKR.Game
 
         public Player()
         {
+            if (Instance != null)
+            {
+                SkinID = Instance.SkinID;
+                HairID = Instance.HairID;
+                ClothesID = Instance.ClothesID;
+            }
             Instance = this;
         }
 
@@ -37,8 +43,8 @@ namespace ADKR.Game
             State = new PlayerEmptyState();
             Faction = Faction.Human;
 
-            HealthBar.Instance.SetMinMax(0, (int)MaxHealth);
-            HealthBar.Instance.SetValue(Health);
+            if (IsInstanceValid(HealthBar.Instance)) HealthBar.Instance?.SetMinMax(0, (int)MaxHealth);
+            if (IsInstanceValid(HealthBar.Instance)) HealthBar.Instance?.SetValue(Health);
 
             await ToSignal(GetTree().CreateTimer(1f), "timeout");
 
@@ -62,7 +68,7 @@ namespace ADKR.Game
         public override void OnHealthChange(float health, float prevHealth)
         {
             base.OnHealthChange(health, prevHealth);
-            HealthBar.Instance.SetValue(health);
+            if (IsInstanceValid(HealthBar.Instance)) HealthBar.Instance?.SetValue(health);
         }
 
         public override async void Die()

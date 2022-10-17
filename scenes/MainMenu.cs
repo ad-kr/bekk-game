@@ -21,7 +21,7 @@ namespace ADKR.Game
         {
             base._Input(e);
 
-            if (e.IsActionPressed("interact")) Game.LoadWorld();
+            if (e.IsActionPressed("interact")) Game.LoadRandomizer();
         }
     }
 }
