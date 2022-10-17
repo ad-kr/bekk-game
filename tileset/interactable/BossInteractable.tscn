@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://coyhg5wtovp7a"]
+
+[ext_resource type="Script" path="res://tileset/interactable/BossInteractable.cs" id="1_1x8ew"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gx1ta"]
+radius = 40.0
+
+[node name="BossInteractable" type="Area2D"]
+z_index = 99
+script = ExtResource("1_1x8ew")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gx1ta")
