@@ -6,7 +6,14 @@ namespace ADKR.Game
     public partial class Boss : Enemy
     {
 
+        public static Boss Instance { get; set; }
+
         public Sprite2D Puff { get; set; }
+
+        public Boss()
+        {
+            Instance = this;
+        }
 
         public override void _Ready()
         {

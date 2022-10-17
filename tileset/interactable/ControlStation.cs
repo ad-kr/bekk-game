@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 namespace ADKR.Game
 {
@@ -7,10 +8,15 @@ namespace ADKR.Game
     {
         private Sprite2D _light;
 
-        public override void _Ready()
+        private static readonly List<ControlStation> _stations = new();
+
+        public override async void _Ready()
         {
             base._Ready();
+            _stations.Add(this);
             _light = GetNode<Sprite2D>("Light");
+
+            await ToSignal(GetTree(), "process_frame");
         }
 
         protected override async void Execute()
@@ -39,7 +45,17 @@ namespace ADKR.Game
 
             Camera.Instance.SmoothingSpeed = originalSpeed;
             GetTree().Paused = false;
+            _stations.Remove(this);
+
+            if (_stations.Count == 0) SetBossObjective();
+
             QueueFree();
+        }
+
+        private static void SetBossObjective()
+        {
+            BossInteractable _interactable = ResourceLoader.Load<PackedScene>("res://tileset/interactable/BossInteractable.tscn").Instantiate<BossInteractable>();
+            Player.Instance.GetParent().AddChild(_interactable);
         }
     }
 }

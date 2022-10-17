@@ -43,6 +43,9 @@ namespace ADKR.Game
             await ToSignal(GetTree().CreateTimer(1f), "timeout");
 
             EquippedWeapon = new Crowbar();
+
+            BossInteractable _interactable = ResourceLoader.Load<PackedScene>("res://tileset/interactable/BossInteractable.tscn").Instantiate<BossInteractable>();
+            Instance.GetParent().AddChild(_interactable);
         }
 
         public override void _Input(InputEvent e)

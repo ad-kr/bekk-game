@@ -19,7 +19,7 @@ namespace ADKR.Game
             await Char.ToSignal(Char.Sprite, "frame_changed");
 
             Tween tween = Char.CreateTween();
-            tween.TweenProperty(Char.Sprite, "position", new Vector2(0f, -128f), 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.Out);
+            tween.TweenProperty(Char.Sprite, "position", new Vector2(0f, -160f), 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.Out);
             tween.TweenProperty(Char.Sprite, "position", new Vector2(0f, 0f), 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.In);
 
             await Char.ToSignal(tween, "finished");
