@@ -26,6 +26,10 @@ namespace ADKR.Game
 
             Char.Sprite.Frame = 1;
             Char.Sprite.Playing = true;
+            Char.Hair.Frame = 1;
+            Char.Hair.Playing = true;
+            Char.Clothes.Frame = 1;
+            Char.Clothes.Playing = true;
         }
 
         public override void Update(double delta)
@@ -57,6 +61,10 @@ namespace ADKR.Game
             base.End();
             Char.Sprite.Playing = false;
             Char.Sprite.Frame = 0;
+            Char.Hair.Playing = false;
+            Char.Hair.Frame = 0;
+            Char.Clothes.Playing = false;
+            Char.Clothes.Frame = 0;
         }
 
         #endregion

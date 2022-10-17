@@ -34,7 +34,7 @@ namespace ADKR.Game
             base._Ready();
             MaxHealth = 1000;
             Health = 1000;
-            State = new PlayerIdleState();
+            State = new PlayerEmptyState();
             Faction = Faction.Human;
 
             HealthBar.Instance.SetMinMax(0, (int)MaxHealth);

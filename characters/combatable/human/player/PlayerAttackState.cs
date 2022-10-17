@@ -32,12 +32,16 @@ namespace ADKR.Game
             if (dir.LengthSquared() <= 0f)
             {
                 Char.Sprite.Playing = false;
-				return;
+                Char.Hair.Playing = false;
+                Char.Clothes.Playing = false;
+                return;
             }
 
             TimeoutReminder.RefreshTimer();
 
-			Char.Sprite.Playing = true;
+            Char.Sprite.Playing = true;
+            Char.Hair.Playing = true;
+            Char.Clothes.Playing = true;
             Char.Velocity = dir * Char.RunSpeed * 0.5f;
 
             Char.MoveAndSlide();
