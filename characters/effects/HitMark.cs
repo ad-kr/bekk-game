@@ -20,15 +20,16 @@ namespace ADKR.Game
             label.Text = Mathf.Round(_damage).ToString();
             Node2D labelContainer = new()
             {
-                ZIndex = 1
+                ZIndex = 10
             };
 
             labelContainer.AddChild(label);
             Char.GetParent().AddChild(labelContainer);
             labelContainer.Position = Char.Position;
+            label.Position = new Vector2(-8f, -20f);
 
             Tween tween = Char.CreateTween().SetEase(Tween.EaseType.Out);
-            tween.TweenProperty(label, "position", label.Position - new Vector2(0f, 20f), 1f);
+            tween.TweenProperty(label, "position", new Vector2(-8f, -50f), 1f);
 
             await Char.ToSignal(tween, "finished");
             label.QueueFree();
