@@ -128,20 +128,20 @@ radius = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_48vv7"]
 radius = 87.0517
 
-[sub_resource type="Theme" id="Theme_o7g1h"]
-default_font = ExtResource("16_hh5nu")
-default_font_size = 16
-
 [sub_resource type="Theme" id="Theme_ojy41"]
 default_font = ExtResource("16_hh5nu")
 
 [sub_resource type="Theme" id="Theme_l82vf"]
 default_font = ExtResource("16_hh5nu")
 
-[sub_resource type="Theme" id="Theme_s81g6"]
+[sub_resource type="Theme" id="Theme_droow"]
 default_font = ExtResource("19_e677v")
 
-[sub_resource type="Theme" id="Theme_droow"]
+[sub_resource type="Theme" id="Theme_o7g1h"]
+default_font = ExtResource("16_hh5nu")
+default_font_size = 16
+
+[sub_resource type="Theme" id="Theme_s81g6"]
 default_font = ExtResource("19_e677v")
 
 [node name="World" type="Node2D"]
@@ -1424,46 +1424,6 @@ texture_progress = ExtResource("13_naf5g")
 texture_progress_offset = Vector2(3, 3)
 script = ExtResource("14_ciktf")
 
-[node name="DialogueBox" type="NinePatchRect" parent="CanvasLayer"]
-process_mode = 3
-texture_filter = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -140.0
-offset_top = -70.0
-offset_right = 140.0
-offset_bottom = -6.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset = Vector2(140, 0)
-texture = ExtResource("15_fdlnj")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
-script = ExtResource("16_xd4is")
-
-[node name="Text" type="RichTextLabel" parent="CanvasLayer/DialogueBox"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 82.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.75, 0.75)
-theme = SubResource("Theme_o7g1h")
-theme_override_colors/default_color = Color(0.12549, 0.180392, 0.215686, 1)
-bbcode_enabled = true
-text = "This is some sample text øæå. It is able to wrap around and it's nice."
-fit_content_height = true
-scroll_active = false
-
 [node name="ObjectiveLabel" type="RichTextLabel" parent="CanvasLayer"]
 texture_filter = 1
 offset_left = 8.0
@@ -1490,12 +1450,14 @@ size_flags_vertical = 4
 script = ExtResource("22_ucjw0")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ScrapCounter"]
+layout_mode = 2
 offset_right = 16.0
 offset_bottom = 23.0
 texture = ExtResource("22_pjlnl")
 stretch_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ScrapCounter"]
+layout_mode = 2
 offset_left = 20.0
 offset_top = 4.0
 offset_right = 64.0
@@ -1511,59 +1473,6 @@ bbcode_enabled = true
 text = "23"
 fit_content_height = true
 scroll_active = false
-
-[node name="ESCMenu" type="Control" parent="CanvasLayer"]
-process_mode = 3
-visible = false
-texture_filter = 1
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("25_vuqyb")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ESCMenu"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="ESC-label" type="RichTextLabel" parent="CanvasLayer/ESCMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -94.0
-offset_top = 100.0
-offset_right = 94.0
-offset_bottom = 115.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_s81g6")
-bbcode_enabled = true
-text = "[center]Tilbake til spilet [ESC]"
-
-[node name="R-label" type="RichTextLabel" parent="CanvasLayer/ESCMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -94.0
-offset_top = -10.0
-offset_right = 94.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_s81g6")
-theme_override_colors/default_color = Color(1, 1, 0, 1)
-bbcode_enabled = true
-text = "[center]Tilbake til hovedmenyen [R]"
 
 [node name="TimeoutReminder" type="RichTextLabel" parent="CanvasLayer"]
 process_mode = 3
@@ -1600,6 +1509,7 @@ script = ExtResource("27_q57rl")
 
 [node name="Indicator" type="TextureRect" parent="CanvasLayer/AimIndicator"]
 modulate = Color(1, 1, 1, 0.462745)
+layout_mode = 0
 offset_top = -4.0
 offset_right = 61.0
 offset_bottom = 4.0
@@ -1607,6 +1517,103 @@ rotation = 1.5708
 pivot_offset = Vector2(0, 4)
 texture = ExtResource("27_o1p1r")
 stretch_mode = 5
+
+[node name="DialogueBox" type="NinePatchRect" parent="CanvasLayer"]
+process_mode = 3
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -70.0
+offset_right = 140.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(140, 0)
+texture = ExtResource("15_fdlnj")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource("16_xd4is")
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 82.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+theme = SubResource("Theme_o7g1h")
+theme_override_colors/default_color = Color(0.12549, 0.180392, 0.215686, 1)
+bbcode_enabled = true
+text = "This is some sample text øæå. It is able to wrap around and it's nice."
+fit_content_height = true
+scroll_active = false
+
+[node name="ESCMenu" type="Control" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("25_vuqyb")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ESCMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ESC-label" type="RichTextLabel" parent="CanvasLayer/ESCMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = 100.0
+offset_right = 94.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s81g6")
+bbcode_enabled = true
+text = "[center]Tilbake til spilet [ESC]"
+
+[node name="R-label" type="RichTextLabel" parent="CanvasLayer/ESCMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -10.0
+offset_right = 94.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s81g6")
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+bbcode_enabled = true
+text = "[center]Tilbake til hovedmenyen [R]"
 
 [node name="Respawn" type="Node2D" parent="."]
 position = Vector2(330, -133)
