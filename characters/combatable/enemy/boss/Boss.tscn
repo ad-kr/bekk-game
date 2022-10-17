@@ -1,10 +1,21 @@
-[gd_scene load_steps=80 format=3 uid="uid://ewnwih7ah7u0"]
+[gd_scene load_steps=82 format=3 uid="uid://ewnwih7ah7u0"]
 
 [ext_resource type="Texture2D" uid="uid://dtp0cmuyrxvcl" path="res://characters/combatable/enemy/boss/boss.png" id="1_unw5k"]
 [ext_resource type="Script" path="res://characters/combatable/enemy/boss/Boss.cs" id="1_uplmx"]
 [ext_resource type="Texture2D" uid="uid://djsx32as6yt0r" path="res://characters/combatable/enemy/boss/boss_death.png" id="2_ci7lb"]
 [ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="4_88ybq"]
 [ext_resource type="Script" path="res://visuals/lights/Light.cs" id="5_ihd81"]
+
+[sub_resource type="Gradient" id="Gradient_k5tfe"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.678899)
+colors = PackedColorArray(0, 0, 0, 0.458824, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5u521"]
+gradient = SubResource("Gradient_k5tfe")
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4c6aw"]
 atlas = ExtResource("1_unw5k")
@@ -345,6 +356,9 @@ texture_filter = 1
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_uplmx")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_5u521")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_5strq")

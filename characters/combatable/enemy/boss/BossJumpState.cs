@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ADKR.Game
 {
-    public class BossJumpState : CharacterState<Enemy>
+    public class BossJumpState : CharacterState<Boss>
     {
         public override async void Start()
         {
@@ -20,7 +20,9 @@ namespace ADKR.Game
 
             Tween tween = Char.CreateTween();
             tween.TweenProperty(Char.Sprite, "position", new Vector2(0f, -160f), 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.Out);
+            tween.Parallel().TweenProperty(Char.Shadow, "scale", new Vector2(0.6f, 0.6f), 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.Out);
             tween.TweenProperty(Char.Sprite, "position", new Vector2(0f, 0f), 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.In);
+            tween.Parallel().TweenProperty(Char.Shadow, "scale", Vector2.One, 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.In);
 
             await Char.ToSignal(tween, "finished");
 

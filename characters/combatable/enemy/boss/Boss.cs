@@ -8,6 +8,8 @@ namespace ADKR.Game
 
         public static Boss Instance { get; set; }
 
+        public Sprite2D Shadow { get; set; }
+
         public Sprite2D Puff { get; set; }
 
         public Boss()
@@ -18,6 +20,8 @@ namespace ADKR.Game
         public override void _Ready()
         {
             base._Ready();
+
+            Shadow = GetNode<Sprite2D>("Shadow");
 
             Puff = GetNode<Sprite2D>("Puff");
             Puff.Scale = new Vector2(0.1f, 0.1f);
