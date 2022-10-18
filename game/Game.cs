@@ -26,5 +26,10 @@ namespace ADKR.Game
         {
             Instance.GetTree().ChangeSceneToFile("res://scenes/World.tscn");
         }
+
+        public static SignalAwaiter Wait(float seconds)
+        {
+            return Instance.ToSignal(Instance.GetTree().CreateTimer(seconds), "timeout");
+        }
     }
 }
