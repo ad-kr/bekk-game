@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://2n0wqs4xtndk"]
+[gd_scene load_steps=95 format=3 uid="uid://2n0wqs4xtndk"]
 
 [ext_resource type="PackedScene" uid="uid://c4aoaf4g41nlb" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Script" path="res://scenes/World.cs" id="1_y8nst"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://cjqktiivm2s46" path="res://UI/pointer.png" id="27_o1p1r"]
 [ext_resource type="Script" path="res://UI/AimIndicator.cs" id="27_q57rl"]
 [ext_resource type="PackedScene" uid="uid://ewnwih7ah7u0" path="res://characters/combatable/enemy/boss/Boss.tscn" id="31_rwua5"]
+[ext_resource type="Script" path="res://UI/ScreenCover.cs" id="40_kgtlw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsh0x"]
 shader = ExtResource("2_3h0i1")
@@ -1866,6 +1867,15 @@ theme = SubResource("Theme_s81g6")
 theme_override_colors/default_color = Color(1, 1, 0, 1)
 bbcode_enabled = true
 text = "[center]Tilbake til hovedmenyen [R]"
+
+[node name="ScreenCover" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("40_kgtlw")
 
 [node name="Respawn" type="Node2D" parent="."]
 position = Vector2(330, -140)

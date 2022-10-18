@@ -13,7 +13,7 @@ namespace ADKR.Game
 
             Instruction = "Frigjør konsulentene i Kaffiskjæret";
 
-            AimIndicator.Instance.Visible = false;
+            if (Godot.Object.IsInstanceValid(AimIndicator.Instance)) AimIndicator.Instance.Visible = false;
 
             Sprite2D mask1 = World.Instance.GetNode<Sprite2D>("%ChamberMask");
             Sprite2D mask2 = World.Instance.GetNode<Sprite2D>("%ChamberMask2");
@@ -33,7 +33,7 @@ namespace ADKR.Game
             mask2.QueueFree();
             mask3.QueueFree();
 
-            //Add freeInteractable
+            //Add FreeInteractable
             FreeInteractable _interactable = ResourceLoader.Load<PackedScene>("res://tileset/interactable/FreeInteractable.tscn").Instantiate<FreeInteractable>();
             Player.Instance.GetParent().AddChild(_interactable);
 
@@ -43,7 +43,7 @@ namespace ADKR.Game
 
             await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(3f), "timeout");
 
-            AimIndicator.Instance.Visible = true;
+            if (Godot.Object.IsInstanceValid(AimIndicator.Instance)) AimIndicator.Instance.Visible = true;
 
             Camera.Instance.SmoothingSpeed = originalSpeed;
             Game.Instance.GetTree().Paused = false;

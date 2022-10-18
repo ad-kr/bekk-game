@@ -31,7 +31,7 @@ namespace ADKR.Game
 
             await Chamber.CloseChambers();
 
-            Floater.SetAllFree(); //Max 2 second
+            Floater.SetAllFree();
 
             await Game.Instance.ToSignal(tree.CreateTimer(1f), "timeout");
 
@@ -39,6 +39,7 @@ namespace ADKR.Game
 
             await Game.Instance.ToSignal(tree.CreateTimer(1f), "timeout");
 
+            Camera.Instance.SmoothingSpeed = 1f;
             Camera.AttachTo(Respawn.Instance);
 
             await Game.Instance.ToSignal(tree.CreateTimer(2f), "timeout");
@@ -47,9 +48,18 @@ namespace ADKR.Game
 
         }
 
-        private void FadeToBlack()
+        private async void FadeToBlack()
         {
-            //Create fadein overlay
+            await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(2f), "timeout");
+
+            Tween tween = Game.Instance.CreateTween();
+            tween.TweenProperty(ScreenCover.Instance, "color", Colors.Black, 5f);
+
+            await Game.Instance.ToSignal(tween, "finished");
+
+            await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(2f), "timeout");
+
+            Game.LoadMainMenu();
         }
     }
 }
