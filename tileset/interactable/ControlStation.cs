@@ -8,7 +8,7 @@ namespace ADKR.Game
     {
         private Sprite2D _light;
 
-        private static readonly List<ControlStation> _stations = new();
+        public static readonly List<ControlStation> Stations = new();
 
         public ControlStation()
         {
@@ -18,7 +18,7 @@ namespace ADKR.Game
         public override async void _Ready()
         {
             base._Ready();
-            _stations.Add(this);
+            Stations.Add(this);
             _light = GetNode<Sprite2D>("Light");
 
             await ToSignal(GetTree(), "process_frame");
@@ -50,9 +50,9 @@ namespace ADKR.Game
 
             Camera.Instance.SmoothingSpeed = originalSpeed;
             GetTree().Paused = false;
-            _stations.Remove(this);
+            Stations.Remove(this);
 
-            if (_stations.Count == 0) SetBossObjective();
+            if (Stations.Count == 0) SetBossObjective();
 
             QueueFree();
         }

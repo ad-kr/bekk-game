@@ -51,6 +51,9 @@ namespace ADKR.Game
 
         private static async void ExecuteNext()
         {
+
+            TimeoutReminder.RefreshTimer();
+
             Instance._label.Text = Instance._texts.Dequeue();
             Instance._label.VisibleRatio = 0f;
             float printDuration = Instance._label.Text.Length / PrintSpeed;
@@ -60,8 +63,8 @@ namespace ADKR.Game
 
             await Instance.ToSignal(tween, "finished");
 
-            float delay = Instance._label.Text.Length * 0.1f;
-            delay = Mathf.Max(delay, 2f);
+            float delay = Instance._label.Text.Length * 0.080f;
+            delay = Mathf.Max(delay, 1.4f);
 
             await Instance.ToSignal(Instance.GetTree().CreateTimer(delay), "timeout");
 
