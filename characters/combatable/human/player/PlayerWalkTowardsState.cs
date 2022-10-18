@@ -13,7 +13,7 @@ namespace ADKR.Game
 
         private readonly Action _callback;
 
-        private Tween _tween;
+        private readonly Tween _tween;
 
         public SignalAwaiter Finished { get; set; }
 
@@ -31,6 +31,8 @@ namespace ADKR.Game
         public override async void Start()
         {
             base.Start();
+
+            await Char.ToSignal(Char.GetTree(), "process_frame");
 
             float distance = Char.Position.DistanceTo(_target);
             float duration = distance / WalkSpeed;
