@@ -10,11 +10,9 @@ namespace ADKR.Game
             base.Start();
             Instruction = "";
             await Game.Instance.ToSignal(Game.Instance.GetTree(), "process_frame");
-            Player.Instance.State = new PlayerIdleState();
+            Player.Instance.State = new PlayerEmptyState();
 
-            // World.Instance.Objectives.Objective = new FreeConsulentsObjective();
-            PlayerWalkTowardsState state = new(Player.Instance.Position - new Vector2(48f, 0f), () => GD.Print("callback"));
-            Player.Instance.State = state;
+            World.Instance.Objectives.Objective = new IntroObjective();
         }
     }
 }
