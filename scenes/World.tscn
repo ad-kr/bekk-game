@@ -1533,20 +1533,37 @@ position = Vector2(-239, 801)
 texture = ExtResource("17_7tr7w")
 
 [node name="Chamber 1" type="AnimatedSprite2D" parent="TileMap"]
-position = Vector2(328, -154)
+position = Vector2(328, -177)
 z_index = 1
 y_sort_enabled = true
 frames = SubResource("SpriteFrames_rdnni")
-offset = Vector2(0, -32.5)
+offset = Vector2(0, -9.5)
+script = ExtResource("19_jpgmf")
+
+[node name="Chamber 3" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(352, -177)
+z_index = 1
+y_sort_enabled = true
+frames = SubResource("SpriteFrames_rdnni")
+offset = Vector2(0, -9.5)
+script = ExtResource("19_jpgmf")
+
+[node name="Chamber 2" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(304, -177)
+z_index = 1
+y_sort_enabled = true
+frames = SubResource("SpriteFrames_rdnni")
+offset = Vector2(0, -9.5)
 script = ExtResource("19_jpgmf")
 
 [node name="Floater 1" type="CharacterBody2D" parent="TileMap"]
-position = Vector2(329, -181)
+position = Vector2(328, -180)
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("19_mt8uu")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="TileMap/Floater 1"]
+position = Vector2(1, 0)
 frames = SubResource("SpriteFrames_kbecj")
 animation = &"run"
 
@@ -1559,7 +1576,53 @@ frames = SubResource("SpriteFrames_kgi70")
 animation = &"run"
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="TileMap/Floater 1"]
-position = Vector2(0, 6)
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_focr6")
+
+[node name="Floater 2" type="CharacterBody2D" parent="TileMap"]
+position = Vector2(304, -180)
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("19_mt8uu")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="TileMap/Floater 2"]
+position = Vector2(1, 0)
+frames = SubResource("SpriteFrames_kbecj")
+animation = &"run"
+
+[node name="Clothes" type="AnimatedSprite2D" parent="TileMap/Floater 2/Sprite"]
+frames = SubResource("SpriteFrames_syaxa")
+animation = &"run"
+
+[node name="Hair" type="AnimatedSprite2D" parent="TileMap/Floater 2/Sprite/Clothes"]
+frames = SubResource("SpriteFrames_kgi70")
+animation = &"run"
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="TileMap/Floater 2"]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_focr6")
+
+[node name="Floater 3" type="CharacterBody2D" parent="TileMap"]
+position = Vector2(352, -180)
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("19_mt8uu")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="TileMap/Floater 3"]
+position = Vector2(1, 0)
+frames = SubResource("SpriteFrames_kbecj")
+animation = &"run"
+
+[node name="Clothes" type="AnimatedSprite2D" parent="TileMap/Floater 3/Sprite"]
+frames = SubResource("SpriteFrames_syaxa")
+animation = &"run"
+
+[node name="Hair" type="AnimatedSprite2D" parent="TileMap/Floater 3/Sprite/Clothes"]
+frames = SubResource("SpriteFrames_kgi70")
+animation = &"run"
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="TileMap/Floater 3"]
+position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_focr6")
 
 [node name="WorkshopInteractable" type="Area2D" parent="."]

@@ -10,13 +10,8 @@ namespace ADKR.Game
             base._Input(e);
 
             if (e.IsActionPressed("interact")) Game.LoadWorld();
-            if (e.IsActionPressed("restart"))
-            {
-                Node parent = Player.Instance.GetParent();
-                parent.RemoveChild(Player.Instance);
-                Player.Instance.RandomizeSprite();
-                parent.AddChild(Player.Instance);
-            }
+
+            if (e.IsActionPressed("restart")) Player.Instance.RandomizeSprite();
         }
     }
 }

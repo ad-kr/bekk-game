@@ -45,11 +45,17 @@ namespace ADKR.Game
 
         public void RandomizeSprite()
         {
-            GD.Randomize();
+            RandSpriteLayers();
+            SetSpriteLayers();
+        }
+
+        public void RandSpriteLayers()
+        {
+            GD.Seed((ulong)(Time.GetTicksUsec() * 100000f + Name.ToString().Length));
+            // GD.Randomize();
             SkinID = GD.RandRange(1, 3);
             HairID = GD.RandRange(1, 6);
             ClothesID = GD.RandRange(1, 3);
-            SetSpriteLayers();
         }
 
         private void SetSpriteLayers()
@@ -58,6 +64,18 @@ namespace ADKR.Game
             Texture2D hairTex = GD.Load<Texture2D>($"res://characters/combatable/human/player/sprites/hair{HairID}.png");
             Texture2D clothesTex = GD.Load<Texture2D>($"res://characters/combatable/human/player/sprites/clothes{ClothesID}.png");
 
+            SpriteFrames skinFrames = new();
+            skinFrames.AddAnimation("run");
+            skinFrames.SetAnimationSpeed("run", 8f);
+
+            SpriteFrames hairFrames = new();
+            hairFrames.AddAnimation("run");
+            hairFrames.SetAnimationSpeed("run", 8f);
+
+            SpriteFrames clothesFrames = new();
+            clothesFrames.AddAnimation("run");
+            clothesFrames.SetAnimationSpeed("run", 8f);
+
             for (int i = 0; i < 6; i++)
             {
                 AtlasTexture skinAtlas = new()
@@ -65,20 +83,26 @@ namespace ADKR.Game
                     Atlas = skinTex,
                     Region = new Rect2(i * 16f, 0f, 16f, 24f)
                 };
-                Sprite.Frames.SetFrame("run", i, skinAtlas);
+                skinFrames.AddFrame("run", skinAtlas, i);
+
                 AtlasTexture hairAtlas = new()
                 {
                     Atlas = hairTex,
                     Region = new Rect2(i * 16f, 0f, 16f, 24f)
                 };
-                Hair.Frames.SetFrame("run", i, hairAtlas);
+                hairFrames.AddFrame("run", hairAtlas, i);
+
                 AtlasTexture clothesAtlas = new()
                 {
                     Atlas = clothesTex,
                     Region = new Rect2(i * 16f, 0f, 16f, 24f)
                 };
-                Clothes.Frames.SetFrame("run", i, clothesAtlas);
+                clothesFrames.AddFrame("run", clothesAtlas, i);
             }
+
+            Sprite.Frames = skinFrames;
+            Hair.Frames = hairFrames;
+            Clothes.Frames = clothesFrames;
         }
 
         protected override void SetFlip(bool isFlipped)
