@@ -13,7 +13,8 @@ namespace ADKR.Game
             Player.Instance.State = new PlayerIdleState();
 
             // World.Instance.Objectives.Objective = new FreeConsulentsObjective();
-            Player.Instance.State = new PlayerWalkTowardsState(Player.Instance.Position - new Vector2(48f, 0f));
+            PlayerWalkTowardsState state = new(Player.Instance.Position - new Vector2(48f, 0f), () => GD.Print("callback"));
+            Player.Instance.State = state;
         }
     }
 }

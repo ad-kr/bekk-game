@@ -13,10 +13,19 @@ namespace ADKR.Game
 
         private readonly Action _callback;
 
+        private Tween _tween;
+
+        public SignalAwaiter Finished { get; set; }
+
         public PlayerWalkTowardsState(Vector2 position, Action callback = null)
         {
             _target = position;
             _callback = callback;
+
+            _tween = Game.Instance.CreateTween();
+            _tween.Stop();
+
+            Finished = Game.Instance.ToSignal(_tween, "finished");
         }
 
         public override async void Start()
@@ -35,10 +44,10 @@ namespace ADKR.Game
 
             Char.IsFlipped = IsFlipped(Char.Position.DirectionTo(_target));
 
-            Tween tween = Char.CreateTween();
-            tween.TweenProperty(Char, "position", _target, duration).SetEase(Tween.EaseType.InOut);
+            _tween.TweenProperty(Char, "position", _target, duration).SetEase(Tween.EaseType.InOut);
+            _tween.Play();
 
-            await Char.ToSignal(tween, "finished");
+            await Char.ToSignal(_tween, "finished");
 
             Char.Sprite.Playing = false;
             Char.Sprite.Frame = 0;
