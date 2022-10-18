@@ -1869,6 +1869,7 @@ bbcode_enabled = true
 text = "[center]Tilbake til hovedmenyen [R]"
 
 [node name="ScreenCover" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
