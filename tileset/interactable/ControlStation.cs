@@ -20,12 +20,16 @@ namespace ADKR.Game
             base._Ready();
             Stations.Add(this);
             _light = GetNode<Sprite2D>("Light");
+            Visible = false;
 
             await ToSignal(GetTree(), "process_frame");
         }
 
         protected override async void Execute()
         {
+
+            if (!Visible) return;
+
             GetTree().Paused = true;
 
             await ToSignal(GetTree().CreateTimer(1f), "timeout");
