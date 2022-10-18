@@ -16,6 +16,8 @@ namespace ADKR.Game
 
         private readonly Queue<string> _texts = new();
 
+        private Action _onDone;
+
         public DialogueBox()
         {
             Instance = this;
@@ -41,6 +43,12 @@ namespace ADKR.Game
             ExecuteNext();
         }
 
+        public static void Talk(Action onDone, params string[] text)
+        {
+            Instance._onDone = onDone;
+            Talk(text);
+        }
+
         private static async void ExecuteNext()
         {
             Instance._label.Text = Instance._texts.Dequeue();
@@ -63,7 +71,7 @@ namespace ADKR.Game
                 return;
             }
 
-            Close();
+            Close(Instance._onDone);
         }
 
         private static SignalAwaiter Open()
@@ -79,7 +87,7 @@ namespace ADKR.Game
             return Instance.ToSignal(tween, "finished");
         }
 
-        private static async void Close()
+        private static async void Close(Action onClose = null)
         {
             if (!Instance.Visible) return;
 
@@ -89,6 +97,7 @@ namespace ADKR.Game
             await Instance.ToSignal(tween, "finished");
             Instance.Visible = false;
             Instance.GetTree().Paused = false;
+            onClose?.Invoke();
         }
     }
 }

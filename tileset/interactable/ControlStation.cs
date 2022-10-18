@@ -10,6 +10,11 @@ namespace ADKR.Game
 
         private static readonly List<ControlStation> _stations = new();
 
+        public ControlStation()
+        {
+            InteractionText = "Deaktiver ";
+        }
+
         public override async void _Ready()
         {
             base._Ready();

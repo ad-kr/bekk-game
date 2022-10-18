@@ -13,7 +13,7 @@ namespace ADKR.Game
             set
             {
                 _instruction = value;
-                if (ObjectiveLabel.Instance != null) ObjectiveLabel.Instance.Text = _instruction;
+                if (Godot.Object.IsInstanceValid(ObjectiveLabel.Instance) && ObjectiveLabel.Instance != null) ObjectiveLabel.Instance.Text = _instruction;
             }
         }
 

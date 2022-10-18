@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0lgq17od8iru"]
+
+[ext_resource type="Script" path="res://tileset/interactable/FreeInteractable.cs" id="1_10to5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lk1m3"]
+radius = 32.0
+
+[node name="FreeInteractable" type="Area2D"]
+script = ExtResource("1_10to5")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
+shape = SubResource("CircleShape2D_lk1m3")

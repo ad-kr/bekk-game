@@ -14,9 +14,10 @@ namespace ADKR.Game
             Chambers.Add(this);
         }
 
-        public static void CloseChambers()
+        public static SignalAwaiter CloseChambers()
         {
-            Chambers.ForEach(chamber => chamber.Playing = true);
+            Chambers?.ForEach(chamber => chamber.Playing = true);
+            return Game.Instance.ToSignal(Chambers[0], "animation_finished");
         }
     }
 }

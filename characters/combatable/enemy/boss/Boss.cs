@@ -32,5 +32,11 @@ namespace ADKR.Game
             State = new BossIdleState();
             Invincible = true;
         }
+
+        public override void _ExitTree()
+        {
+            base._ExitTree();
+            World.Instance.Objectives.Objective = new FreeConsulentsObjective();
+        }
     }
 }

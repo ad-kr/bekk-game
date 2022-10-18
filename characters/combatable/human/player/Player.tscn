@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cj1b1oc1kcggd"]
+[gd_scene load_steps=33 format=3 uid="uid://c4aoaf4g41nlb"]
 
 [ext_resource type="Script" path="res://characters/combatable/human/player/Player.cs" id="1_xqx1c"]
 [ext_resource type="Texture2D" uid="uid://brp6350bqhwmo" path="res://characters/combatable/human/player/empty_sprite.png" id="2_jrmrc"]

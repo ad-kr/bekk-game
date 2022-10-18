@@ -1,6 +1,6 @@
-[gd_scene load_steps=92 format=3 uid="uid://2n0wqs4xtndk"]
+[gd_scene load_steps=94 format=3 uid="uid://2n0wqs4xtndk"]
 
-[ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
+[ext_resource type="PackedScene" uid="uid://c4aoaf4g41nlb" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Script" path="res://scenes/World.cs" id="1_y8nst"]
 [ext_resource type="Shader" path="res://shaders/ShadowMask.gdshader" id="2_3h0i1"]
 [ext_resource type="TileSet" uid="uid://dd0qvjpqtqo3x" path="res://tileset/Tileset.tres" id="2_d0adc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cebw6goccen8h" path="res://visuals/masks/glow_stick_01_mask.png" id="7_4gann"]
 [ext_resource type="Texture2D" uid="uid://06dh48s4wigq" path="res://visuals/masks/control_station_mask.png" id="9_rqb50"]
 [ext_resource type="Texture2D" uid="uid://7mu600pb8yug" path="res://visuals/masks/back_screen_mask_sprite.png" id="9_xlq8f"]
+[ext_resource type="Texture2D" uid="uid://gfv85q45jsf" path="res://visuals/masks/chamber_mask.png" id="10_ev6nf"]
 [ext_resource type="Texture2D" uid="uid://bl5uaxplm1j1a" path="res://UI/hp_bar_bg.png" id="12_ompfj"]
 [ext_resource type="Script" path="res://tileset/interactable/WorkshopInteractable.cs" id="13_a3gtr"]
 [ext_resource type="Texture2D" uid="uid://ymsgpmx885o2" path="res://UI/hp_bar.png" id="13_naf5g"]
@@ -127,6 +128,11 @@ fill_from = Vector2(0.5, 0.5)
 shader = ExtResource("2_3h0i1")
 shader_parameter/flicker = 0.0
 shader_parameter/tint = Color(0.87451, 1, 0.894118, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qdjor"]
+shader = ExtResource("2_3h0i1")
+shader_parameter/flicker = 0.0
+shader_parameter/tint = Color(0.176471, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cub7e"]
 radius = 20.0
@@ -1193,6 +1199,27 @@ material = SubResource("ShaderMaterial_t3kp2")
 position = Vector2(328, 374)
 texture = ExtResource("9_rqb50")
 
+[node name="ChamberMask" type="Sprite2D" parent="BackBufferCopy"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_qdjor")
+position = Vector2(304, -179)
+texture = ExtResource("10_ev6nf")
+offset = Vector2(0, 0.5)
+
+[node name="ChamberMask2" type="Sprite2D" parent="BackBufferCopy"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_qdjor")
+position = Vector2(328, -179)
+texture = ExtResource("10_ev6nf")
+offset = Vector2(0, 0.5)
+
+[node name="ChamberMask3" type="Sprite2D" parent="BackBufferCopy"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_qdjor")
+position = Vector2(352, -179)
+texture = ExtResource("10_ev6nf")
+offset = Vector2(0, 0.5)
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 y_sort_enabled = true
@@ -1245,7 +1272,7 @@ layer_6/z_index = 20
 layer_6/tile_data = PackedInt32Array(-393213, 131072, 9, -393215, 131072, 9, -327681, 131072, 9, -327683, 131072, 9, -393211, 131072, 9, -393209, 131072, 9)
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_im5d0")]
-position = Vector2(347, -113)
+position = Vector2(350, -113)
 
 [node name="Robot" parent="TileMap" instance=ExtResource("4_mgnae")]
 position = Vector2(135, 74)
@@ -1841,5 +1868,5 @@ bbcode_enabled = true
 text = "[center]Tilbake til hovedmenyen [R]"
 
 [node name="Respawn" type="Node2D" parent="."]
-position = Vector2(330, -133)
+position = Vector2(330, -140)
 script = ExtResource("25_j51pw")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/RandomizePlayer.cs" id="1_16dhy"]
 [ext_resource type="FontFile" uid="uid://cxo3mr755tp2w" path="res://fonts/OpenSansPX.ttf" id="1_gasqg"]
-[ext_resource type="PackedScene" uid="uid://cj1b1oc1kcggd" path="res://characters/combatable/human/player/Player.tscn" id="3_o5igd"]
+[ext_resource type="PackedScene" uid="uid://c4aoaf4g41nlb" path="res://characters/combatable/human/player/Player.tscn" id="3_o5igd"]
 
 [sub_resource type="Theme" id="Theme_uy0x0"]
 default_font = ExtResource("1_gasqg")

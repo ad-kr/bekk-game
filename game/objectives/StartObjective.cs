@@ -11,6 +11,8 @@ namespace ADKR.Game
             Instruction = "this is the first objective :)";
             await Game.Instance.ToSignal(Game.Instance.GetTree(), "process_frame");
             Player.Instance.State = new PlayerIdleState();
+            
+            World.Instance.Objectives.Objective = new FreeConsulentsObjective();
         }
     }
 }

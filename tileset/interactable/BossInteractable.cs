@@ -7,6 +7,11 @@ namespace ADKR.Game
     public partial class BossInteractable : Interactable
     {
 
+        public BossInteractable()
+        {
+            InteractionText = "Deaktiver AI ";
+        }
+
         public override void _Ready()
         {
             base._Ready();
