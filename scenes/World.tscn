@@ -1666,6 +1666,7 @@ shape = SubResource("CircleShape2D_48vv7")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+visible = false
 texture_filter = 1
 offset_left = 8.0
 offset_top = 8.0
@@ -1693,6 +1694,7 @@ scroll_active = false
 script = ExtResource("21_j76lj")
 
 [node name="ScrapCounter" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 texture_filter = 1
 offset_left = 112.0
 offset_top = 3.0
@@ -1747,6 +1749,7 @@ scroll_active = false
 script = ExtResource("20_6dvcr")
 
 [node name="AimIndicator" type="Control" parent="CanvasLayer"]
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 8
@@ -1881,3 +1884,6 @@ script = ExtResource("40_kgtlw")
 [node name="Respawn" type="Node2D" parent="."]
 position = Vector2(330, -140)
 script = ExtResource("25_j51pw")
+
+[node name="PointLight2d" type="PointLight2D" parent="."]
+position = Vector2(-47, 452)
