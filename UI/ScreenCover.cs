@@ -15,6 +15,7 @@ namespace ADKR.Game
         public override void _Ready()
         {
             base._Ready();
+			Visible = true;
             Color = new Color(Colors.Black, 0f);
         }
     }
