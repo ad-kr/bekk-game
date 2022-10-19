@@ -1,6 +1,6 @@
-using Godot;
 using System;
 using System.Collections.Generic;
+using Godot;
 
 namespace ADKR.Game
 {
@@ -44,20 +44,29 @@ namespace ADKR.Game
 
             await Game.Instance.ToSignal(tree.CreateTimer(2f), "timeout");
 
-            DialogueBox.Talk(FadeToBlack, "Du har klart det...", "Den onde AI-en er beseiret.", "Vi kan endelig få tilbake konsulentjobbene våre.");
-
+            DialogueBox
+                .Talk(FadeToBlack,
+                "Du har klart det...",
+                "Den onde AI-en er beseiret, og konsulentene våre er frie.",
+                "Sammen kan dere bygge opp Bekk på nytt!",
+                "Men aller først en kaffepause...");
         }
 
         private async void FadeToBlack()
         {
-            await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(2f), "timeout");
+            await Game
+                .Instance
+                .ToSignal(Game.Instance.GetTree().CreateTimer(2f), "timeout");
 
             Tween tween = Game.Instance.CreateTween();
-            tween.TweenProperty(ScreenCover.Instance, "color", Colors.Black, 5f);
+            tween
+                .TweenProperty(ScreenCover.Instance, "color", Colors.Black, 5f);
 
             await Game.Instance.ToSignal(tween, "finished");
 
-            await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(2f), "timeout");
+            await Game
+                .Instance
+                .ToSignal(Game.Instance.GetTree().CreateTimer(2f), "timeout");
 
             Game.LoadMainMenu();
         }
