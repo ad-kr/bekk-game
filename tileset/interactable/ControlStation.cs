@@ -63,8 +63,7 @@ namespace ADKR.Game
 
         private static void SetBossObjective()
         {
-            BossInteractable _interactable = ResourceLoader.Load<PackedScene>("res://tileset/interactable/BossInteractable.tscn").Instantiate<BossInteractable>();
-            Player.Instance.GetParent().AddChild(_interactable);
+            World.Instance.Objectives.Objective = new EnableBossObjective();
         }
     }
 }

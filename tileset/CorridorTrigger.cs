@@ -19,7 +19,7 @@ namespace ADKR.Game
 
             await Game.Wait(1f);
 
-            DialogueBox.Talk(ApproachNote, "???", "Er..", "Er dette konsulentene?", "Hva skjedde med dem?");
+            DialogueBox.Talk(ApproachNote, "???", "Er..", "Er dette konsulentene våre?", "Hva skjedde med dem?");
         }
 
         private async void ApproachNote()
