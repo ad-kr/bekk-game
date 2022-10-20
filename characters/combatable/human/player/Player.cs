@@ -41,7 +41,7 @@ namespace ADKR.Game
             MaxHealth = 1000;
             Health = 1000;
             State = new PlayerEmptyState();
-            Faction = Faction.Human;
+            Faction = Faction.Robot;
 
             if (IsInstanceValid(HealthBar.Instance)) HealthBar.Instance?.SetMinMax(0, (int)MaxHealth);
             if (IsInstanceValid(HealthBar.Instance)) HealthBar.Instance?.SetValue(Health);

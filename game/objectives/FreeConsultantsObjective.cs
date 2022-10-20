@@ -9,7 +9,7 @@ namespace ADKR.Game
         {
             base.Start();
 
-            await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(2f), "timeout");
+            await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(1f), "timeout");
 
             Instruction = "Frigjør konsulentene i Kaffiskjæret";
 

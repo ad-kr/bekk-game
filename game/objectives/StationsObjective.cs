@@ -14,6 +14,7 @@ namespace ADKR.Game
             ControlStation.Stations.ForEach(station => station.Visible = true);
 
             Player.Instance.State = new PlayerIdleState();
+            Player.Instance.Faction = Faction.Human;
         }
     }
 }

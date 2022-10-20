@@ -24,9 +24,9 @@ namespace ADKR.Game
 
             await Char.ToSignal(Char.GetTree().CreateTimer(1f), "timeout");
 
-            Area2D scrap = ResourceLoader.Load<PackedScene>("res://combat/scrap/Scrap.tscn").Instantiate<Area2D>();
-            Char.GetParent().AddChild(scrap);
-            scrap.Position = Char.Position;
+            //Area2D scrap = ResourceLoader.Load<PackedScene>("res://combat/scrap/Scrap.tscn").Instantiate<Area2D>();
+            //Char.GetParent().AddChild(scrap);
+            //scrap.Position = Char.Position;
 
             Char.QueueFree();
         }

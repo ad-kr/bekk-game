@@ -37,8 +37,8 @@ namespace ADKR.Game
 
             AttackOptions attackOptions = new()
             {
-                MinDamage = 3f,
-                MaxDamage = 6f,
+                MinDamage = 2f,
+                MaxDamage = 4f,
                 OnHit = (target, damage) =>
                 {
                     target.ApplyEffect(new SlowDownEffect());

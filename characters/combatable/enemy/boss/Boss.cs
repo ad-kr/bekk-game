@@ -21,6 +21,9 @@ namespace ADKR.Game
         {
             base._Ready();
 
+            MaxHealth = 150f;
+            Health = 150f;
+
             Shadow = GetNode<Sprite2D>("Shadow");
 
             Puff = GetNode<Sprite2D>("Puff");

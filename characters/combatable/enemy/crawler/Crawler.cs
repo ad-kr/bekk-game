@@ -8,14 +8,16 @@ namespace ADKR.Game
         public override void _Ready()
         {
             base._Ready();
-			AttackRadius = 16f;
-			RunSpeed = 96f;
+            MaxHealth = 15f;
+            Health = 15f;
+            AttackRadius = 16f;
+            RunSpeed = 96f;
             Faction = Faction.Robot;
 
-			AttackState = new CrawlerAttackState();
-			ActivateState = new CrawlerActivateState();
-			ChargeState = new CrawlerChargeState();
-			DeactivateState = new CrawlerDeactivateState();
+            AttackState = new CrawlerAttackState();
+            ActivateState = new CrawlerActivateState();
+            ChargeState = new CrawlerChargeState();
+            DeactivateState = new CrawlerDeactivateState();
         }
     }
 }

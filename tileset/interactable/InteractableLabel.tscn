@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqk3qngcsxgsk"]
 
-[ext_resource type="FontFile" uid="uid://irdx4k51l5t7" path="res://fonts/OpenSansPXBold.ttf" id="1_bduyn"]
+[ext_resource type="FontFile" uid="uid://jvr7qgaeb1ho" path="res://fonts/OpenSansPXModified.ttf" id="1_0gjpg"]
 
 [sub_resource type="Theme" id="Theme_hpc2l"]
-default_font = ExtResource("1_bduyn")
+default_font = ExtResource("1_0gjpg")
 
 [node name="InteractableLabel" type="Node2D"]
 texture_filter = 1
