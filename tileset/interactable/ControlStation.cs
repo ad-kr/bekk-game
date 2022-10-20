@@ -37,18 +37,18 @@ namespace ADKR.Game
             AimIndicator.Instance.Visible = false;
 
             float originalSpeed = Camera.Instance.SmoothingSpeed;
-            Camera.Instance.SmoothingSpeed = 1f;
+            Camera.Instance.SmoothingSpeed = 3f;
             Camera.AttachTo(_light);
 
-            await ToSignal(GetTree().CreateTimer(5f), "timeout");
+            await ToSignal(GetTree().CreateTimer(3f), "timeout");
 
             _light.Visible = false;
 
-            await ToSignal(GetTree().CreateTimer(2f), "timeout");
+            await ToSignal(GetTree().CreateTimer(1.5f), "timeout");
 
             Camera.AttachTo(Player.Instance);
 
-            await ToSignal(GetTree().CreateTimer(5f), "timeout");
+            await ToSignal(GetTree().CreateTimer(3f), "timeout");
 
             AimIndicator.Instance.Visible = true;
 

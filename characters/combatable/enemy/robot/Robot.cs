@@ -8,8 +8,8 @@ namespace ADKR.Game
         public override void _Ready()
         {
             base._Ready();
-            MaxHealth = 100f;
-            Health = 100f;
+            MaxHealth = 50f;
+            Health = 50f;
             RunSpeed = 64f;
             Faction = Faction.Robot;
 

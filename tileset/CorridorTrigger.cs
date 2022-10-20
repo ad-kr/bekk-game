@@ -50,7 +50,7 @@ namespace ADKR.Game
                 "Kanskje du kan beseire den onde AI-en?",
                 "Ser du disse kryokamrene?",
                 "I disse har jeg lukket våre flinkeste konsulenter fra teknologi, design og BMC.",
-                "Fri dem. Sammen kan dere bygge Bekk på nytt.",
+                "Frigjør dem. Sammen kan dere bygge Bekk på nytt.",
                 "...",
                 "For å gjøre dette må du først deaktivere alle kontroll-stasjonene til AI-en.",
             });

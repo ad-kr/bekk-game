@@ -21,8 +21,8 @@ namespace ADKR.Game
         {
             base._Ready();
 
-            MaxHealth = 150f;
-            Health = 150f;
+            MaxHealth = 200f;
+            Health = 200f;
 
             Shadow = GetNode<Sprite2D>("Shadow");
 
