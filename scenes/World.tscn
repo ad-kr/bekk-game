@@ -1278,7 +1278,7 @@ layer_6/z_index = 20
 layer_6/tile_data = PackedInt32Array(-393213, 131072, 9, -393215, 131072, 9, -327681, 131072, 9, -327683, 131072, 9, -393211, 131072, 9, -393209, 131072, 9)
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_im5d0")]
-position = Vector2(350, -113)
+position = Vector2(286, 95)
 
 [node name="Robot" parent="TileMap" instance=ExtResource("4_mgnae")]
 position = Vector2(135, 74)

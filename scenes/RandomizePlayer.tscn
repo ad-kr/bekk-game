@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://dl0bsgxrkacjk"]
 
 [ext_resource type="Script" path="res://scenes/RandomizePlayer.cs" id="1_16dhy"]
-[ext_resource type="FontFile" uid="uid://cxo3mr755tp2w" path="res://fonts/OpenSansPX.ttf" id="1_gasqg"]
+[ext_resource type="FontFile" uid="uid://jvr7qgaeb1ho" path="res://fonts/OpenSansPXModified.ttf" id="2_5jpyv"]
 [ext_resource type="PackedScene" uid="uid://c4aoaf4g41nlb" path="res://characters/combatable/human/player/Player.tscn" id="3_o5igd"]
 
 [sub_resource type="Theme" id="Theme_uy0x0"]
-default_font = ExtResource("1_gasqg")
+default_font = ExtResource("2_5jpyv")
 
 [node name="RandomizePlayer" type="Control"]
 texture_filter = 1
@@ -40,7 +40,7 @@ offset_bottom = 322.0
 grow_horizontal = 2
 theme = SubResource("Theme_uy0x0")
 bbcode_enabled = true
-text = "[center][R] Bytt utseende"
+text = "[center][@] Bytt utseende"
 scroll_active = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
@@ -53,7 +53,7 @@ offset_bottom = 322.0
 grow_horizontal = 2
 theme = SubResource("Theme_uy0x0")
 bbcode_enabled = true
-text = "[center][E] Start spillet"
+text = "[center][©] Start spillet"
 scroll_active = false
 
 [node name="Player" parent="." instance=ExtResource("3_o5igd")]

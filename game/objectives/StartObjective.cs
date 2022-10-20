@@ -10,9 +10,13 @@ namespace ADKR.Game
             base.Start();
             Instruction = "";
             await Game.Instance.ToSignal(Game.Instance.GetTree(), "process_frame");
-            Player.Instance.State = new PlayerEmptyState();
-
-            World.Instance.Objectives.Objective = new IntroObjective();
+            // Player.Instance.State = new PlayerEmptyState();
+            Player.Instance.State = new PlayerIdleState();
+            Player.Instance.EquippedWeapon = new Crowbar();
+            AimIndicator.Instance.Visible = true;
+            
+            // World.Instance.Objectives.Objective = new IntroObjective();
+            //World.Instance.Objectives.Objective = new ApproachObjective();
         }
     }
 }
