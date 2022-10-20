@@ -16,7 +16,7 @@ namespace ADKR.Game
             base._Ready();
 
             _label = ResourceLoader.Load<PackedScene>("res://tileset/interactable/InteractableLabel.tscn").Instantiate<Node2D>();
-            _label.GetChild<RichTextLabel>(0).Text = $"[center]{InteractionText}[E]";
+            _label.GetChild<RichTextLabel>(0).Text = $"[center]{InteractionText}[color=#40E2A0]©[/color]";
             _label.Modulate = Colors.Transparent;
             _label.Position = new Vector2(0f, -20f);
 

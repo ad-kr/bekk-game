@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://2n0wqs4xtndk"]
+[gd_scene load_steps=99 format=3 uid="uid://2n0wqs4xtndk"]
 
 [ext_resource type="PackedScene" uid="uid://c4aoaf4g41nlb" path="res://characters/combatable/human/player/Player.tscn" id="1_im5d0"]
 [ext_resource type="Script" path="res://scenes/World.cs" id="1_y8nst"]
@@ -41,6 +41,7 @@
 [ext_resource type="Script" path="res://UI/AimIndicator.cs" id="27_q57rl"]
 [ext_resource type="PackedScene" uid="uid://ewnwih7ah7u0" path="res://characters/combatable/enemy/boss/Boss.tscn" id="31_rwua5"]
 [ext_resource type="Script" path="res://UI/ScreenCover.cs" id="40_kgtlw"]
+[ext_resource type="FontFile" uid="uid://jvr7qgaeb1ho" path="res://fonts/OpenSansPXModified.ttf" id="40_vun4g"]
 [ext_resource type="Script" path="res://tileset/CorridorTrigger.cs" id="42_7p2gw"]
 [ext_resource type="Texture2D" uid="uid://dpix3gi3ngmnd" path="res://combat/weapon/crowbar.png" id="43_cm36g"]
 
@@ -283,7 +284,7 @@ default_font = ExtResource("16_hh5nu")
 default_font_size = 16
 
 [sub_resource type="Theme" id="Theme_s81g6"]
-default_font = ExtResource("19_e677v")
+default_font = ExtResource("40_vun4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqoup"]
 size = Vector2(32, 32)
@@ -1659,6 +1660,7 @@ position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_focr6")
 
 [node name="WorkshopInteractable" type="Area2D" parent="."]
+visible = false
 top_level = true
 position = Vector2(37, -1087)
 z_index = 99
@@ -1856,7 +1858,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_s81g6")
 bbcode_enabled = true
-text = "[center]Tilbake til spilet [ESC]"
+text = "[center][color=#777][START][/color] Tilbake til spillet "
 
 [node name="R-label" type="RichTextLabel" parent="CanvasLayer/ESCMenu"]
 layout_mode = 1
@@ -1874,7 +1876,7 @@ grow_vertical = 2
 theme = SubResource("Theme_s81g6")
 theme_override_colors/default_color = Color(1, 1, 0, 1)
 bbcode_enabled = true
-text = "[center]Tilbake til hovedmenyen [R]"
+text = "[center][color=#40E2A0]©[/color] Tilbake til hovedmenyen "
 
 [node name="ScreenCover" type="ColorRect" parent="CanvasLayer"]
 visible = false
