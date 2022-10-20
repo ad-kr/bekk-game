@@ -17,7 +17,7 @@ namespace ADKR.Game
             }
         }
 
-        private static List<Action> _deviceSubscriptions = new();
+        private static readonly List<Action> _deviceSubscriptions = new();
 
         public static Vector2 GetAxisInput()
         {
@@ -37,9 +37,7 @@ namespace ADKR.Game
             float joyLength = joy.Length();
             if (joyLength > 0f) return GetJoyDir();
 
-            Vector2 dir =
-                Game.Instance.GetViewport().GetMousePosition() -
-                (Game.Instance.GetViewportRect().Size / 2f);
+            Vector2 dir = Game.Instance.GetViewport().GetMousePosition() - (Game.Instance.GetViewportRect().Size / 2f);
             dir = dir.Normalized();
             return dir;
         }
@@ -54,9 +52,9 @@ namespace ADKR.Game
 
         public static void SetInputDevice(InputEvent e)
         {
-            bool isKeyboard = e.IsActionPressed("joy_input") ? false : e.IsActionPressed("joy_input") ? true : IsKeyboard;
+            bool isKeyboard = !e.IsActionPressed("joy_input") && (e.IsActionPressed("key_input") || IsKeyboard);
 
-            if(isKeyboard == IsKeyboard) return;
+            if (isKeyboard == IsKeyboard) return;
 
             IsKeyboard = isKeyboard;
         }
