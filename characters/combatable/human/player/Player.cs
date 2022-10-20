@@ -10,6 +10,8 @@ namespace ADKR.Game
 
         private Weapon _equippedWeapon = null;
 
+        public Vector2 PrevDir { get; set; } = Vector2.Zero;
+
         public Weapon EquippedWeapon
         {
             get => _equippedWeapon;
@@ -56,7 +58,9 @@ namespace ADKR.Game
             {
                 if (State is PlayerAttackState) return;
 
-                State = new PlayerAttackState(InputHandler.GetMouseDir());
+                float dirLength = InputHandler.GetJoyDir().Length();
+                PrevDir = dirLength <= 0f ? PrevDir : InputHandler.GetJoyDir();
+                State = new PlayerAttackState(PrevDir);
             }
         }
 

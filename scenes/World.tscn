@@ -1991,7 +1991,7 @@ grow_vertical = 2
 theme = SubResource("Theme_s81g6")
 theme_override_colors/default_color = Color(1, 1, 0, 1)
 bbcode_enabled = true
-text = "[center][color=#40E2A0]©[/color] Tilbake til hovedmenyen "
+text = "[center][color=#FF69F8]@[/color] Tilbake til hovedmenyen "
 
 [node name="ScreenCover" type="ColorRect" parent="CanvasLayer"]
 visible = false

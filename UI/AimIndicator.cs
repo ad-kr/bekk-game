@@ -23,7 +23,10 @@ namespace ADKR.Game
         public override void _PhysicsProcess(double delta)
         {
             base._PhysicsProcess(delta);
-            _indicator.Rotation = InputHandler.GetMouseDir().Angle();
+
+            float dirLength = InputHandler.GetJoyDir().Length();
+            Player.Instance.PrevDir = dirLength <= 0f ? Player.Instance.PrevDir : InputHandler.GetJoyDir();
+            _indicator.Rotation = Player.Instance.PrevDir.Angle();
         }
     }
 }

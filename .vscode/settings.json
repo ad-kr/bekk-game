@@ -1,8 +1,8 @@
 {
     "godot_tools.editor_path": "c:\\Program Files\\Godot_v4.0-beta1_mono_win64\\Godot_v4.0-beta1_mono_win64.exe",
     "files.exclude": {
+        "": true,
         "**/.gitattributes": true,
-        "**/.gitignore": true,
         "**/.tscn": true,
         "**/.vscode": true,
         "**/*.godot": true,
