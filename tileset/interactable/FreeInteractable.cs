@@ -46,10 +46,10 @@ namespace ADKR.Game
 
             DialogueBox
                 .Talk(FadeToBlack,
-                "Du har klart det...",
-                "Den onde AI-en er beseiret, og konsulentene våre er frie.",
-                "Sammen kan dere bygge opp Bekk på nytt!",
-                "Men aller først en kaffepause...");
+                "Du klarte det, du beseiret robotene!",
+                "Uten maskinene, kan Bekk endelig få en ny start!",
+                "Sammen kan vi bygge opp Bekk på nytt!",
+                "...Meeen aller først en kaffepause.");
         }
 
         private async void FadeToBlack()

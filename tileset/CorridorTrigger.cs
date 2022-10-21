@@ -19,7 +19,7 @@ namespace ADKR.Game
 
             await Game.Wait(1f);
 
-            DialogueBox.Talk(ApproachNote, "???", "Er..", "Er dette konsulentene våre?", "Hva skjedde med dem?");
+            DialogueBox.Talk(ApproachNote, "Er..", "Er dette konsulentene våre?");
         }
 
         private async void ApproachNote()
@@ -31,28 +31,30 @@ namespace ADKR.Game
 
             await Game.Wait(1f);
             DialogueBox.Talk(ShowStations, new string[] {
-                "Hmm, en notat...",
+                "Hmm, noen la igjen et notat...",
                 "...fra Olav?",
-                "...Hvis du leser dette, er det sannsynligvis for sent...",
-                "En gang i tiden var denne bygningen full av konsulenter.",
-                "Vi skapte verdi for kundene og samfunnet.",
-                "...men kundene ville ha mer.",
-                "Mer smidighet...",
+                "...Leser du dette, frykter jeg at det allerede er for sent...",
+                "Det var i denne bygningen at Bekk pleide å holde til.",
+                "Det var en tid med kontorer fulle av dyktige konsulenter, uvitne om hvilken fremtid som ventet dem.",
+                "De bygget løsninger som forbedret samfunnet, skapte verdi for kundene sine, og bygget prisvinnende produkter ingen hadde sett maken til.",
+                "Men det var aldri nok. Kundene ville ha mer...",
+                "Mer smidighet",
                 "...større logo...",
                 "...og blockchain teknologi.",
-                "Vi prøvde å få hjelp av kunnstig intelligens.",
+                "Vi oppsøkte kunstig intelligens.",
                 "Først Copilot...",
                 "...så Dall.e",
-                "Så tok AI over...",
-                "Konsulentene var ikke lenger effektive nok for AI-en.",
-                "De har utviklet sine egne robotter som skulle gjøre jobben for oss... Skuret og Bekk er nå tapt for alltid.",
-                "Men... Kanksje det ikke er for sent allikavel?",
-                "Kanskje du kan beseire den onde AI-en?",
-                "Ser du disse kryokamrene?",
-                "I disse har jeg lukket våre flinkeste konsulenter fra teknologi, design og BMC.",
-                "Frigjør dem. Sammen kan dere bygge Bekk på nytt.",
-                "...",
-                "For å gjøre dette må du først deaktivere alle kontroll-stasjonene til AI-en.",
+                "Alt gikk så sømløst i starten, kundene var storfornøyde, pengene dalte ned.",
+                "Men det viste seg å bare være begynnelsen.",
+                "Automatiserte kodemaskiner, forretnings-androider, ja til og med AI-drevne designere. Vi trengte bare å lene oss tilbake og se at arbeidet ble gjort.",
+                "Men maskinene ble for smarte. De begynte å se på konsulentene som en hindring. En hindring for deres effektivitet, og ikke minst, en hindring for veksten til Bekk.",
+                "Enten det, eller så var det å kvitte seg med oss bare planen til å begynne med.",
+                "Jeg skriver dette som et siste forsøk på å redde det som gjenstår.",
+                "Du som leser dette er Bekk sitt aller siste håp.",
+                "Til høyre for for deg skal det stå tre kryokamre",
+                "I disse har jeg fryst ned de dyktigste konsulentene fra teknologi, design og BMC",
+                "Hvis du klarer å frigjøre dem, har vi kanskje fortsatt en sjanse for en ny start",
+                "For å gjøre dette må du først deaktivere kontroll-stasjonene."
             });
         }
 
@@ -97,7 +99,7 @@ namespace ADKR.Game
             await Game.Wait(2f);
 
             DialogueBox.Talk(ReturnToDialogue, new string[] {
-                "Når du er ferdig med dette kan du deaktivere det sentrale systemet i Hovedøya.",
+                "Klarer du dette, må du deaktivere det sentrale systemet. Du finner det i Hovedøya.",
             });
         }
 
@@ -110,8 +112,8 @@ namespace ADKR.Game
             await Game.Wait(2f);
 
             DialogueBox.Talk(GiveWeapon, new string[] {
-                "Men du må passe på. Skuret er fyllt av roboter som kommer til å prøve å angripe deg.",
-                "Ta dette for å kjempe mot robotene.",
+                "Dette kommer ikke til å være en enkel oppgave. Du er advart.",
+                "Jeg la igjen et brekkjern for å hjelpe deg, du kommer til å trenge det.",
             });
         }
 
@@ -122,7 +124,7 @@ namespace ADKR.Game
 
             await Game.Wait(1f);
 
-            DialogueBox.Talk(SetNewObjective, "Lykke til. - Olav");
+            DialogueBox.Talk(SetNewObjective, "Husk, konsulentenes fremtid ligger i dine hender. - Olav");
         }
 
         private void SetNewObjective()

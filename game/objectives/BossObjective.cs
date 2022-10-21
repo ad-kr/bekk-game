@@ -12,7 +12,7 @@ namespace ADKR.Game
         public override async void Start()
         {
             base.Start();
-            Instruction = "Bekjempe den sentrale AI-en for å frigjøre konsulentene";
+            Instruction = "Bekjempe den sentrale AI-et for å frigjøre konsulentene";
 
             await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(0.4f), "timeout");
 

@@ -32,7 +32,7 @@ namespace ADKR.Game
 
             await Game.Wait(1f);
 
-            DialogueBox.Talk(PanToChambers, "???", "Hva skjedde her?", "Hvor er alle konsulentene?");
+            DialogueBox.Talk(PanToChambers, "...", "Hva i alle dager har skjedd med Skuret?", "...og hvor har alle blitt av?");
         }
 
         private async void PanToChambers()
