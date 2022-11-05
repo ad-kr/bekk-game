@@ -44,7 +44,7 @@ namespace ADKR.Game
             }, BottomHand.Angle, _defaultBottomAngle, 0.2f);
 
             List<Combatable> targets = new();
-            foreach (Combatable combatable in Combatable.Combatables)
+            foreach (Combatable combatable in World.Combatables)
             {
                 if (combatable == Player) continue;
                 if (FactionValidator.GetRelation(Player.Faction, combatable.Faction) != FactionRelation.Hostile) continue;

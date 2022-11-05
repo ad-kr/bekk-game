@@ -62,10 +62,10 @@ namespace ADKR.Game
         {
             await Game.Wait(1f);
             string[] strings = new[]{
-                $"Du kan finne stasjonene i {ControlStation.Stations[0].Name}",
-                $"{ControlStation.Stations[1].Name}...",
-                $"ved {ControlStation.Stations[2].Name}...",
-                $"...og den siste i {ControlStation.Stations[3].Name}.",
+                $"Du kan finne stasjonene i {World.Stations[0].Name}",
+                $"{World.Stations[1].Name}...",
+                $"ved {World.Stations[2].Name}...",
+                $"...og den siste i {World.Stations[3].Name}.",
             };
 
             NextStation(strings, 0);
@@ -79,7 +79,7 @@ namespace ADKR.Game
                 return;
             }
 
-            Camera.AttachTo(ControlStation.Stations[index]);
+            Camera.AttachTo(World.Stations[index]);
 
             await Game.Wait(2f);
 

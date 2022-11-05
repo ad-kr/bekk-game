@@ -24,7 +24,7 @@ namespace ADKR.Game
             base.Update(delta);
 
             bool shouldDeactivate = true;
-            foreach (Combatable combatable in Combatable.Combatables)
+            foreach (Combatable combatable in World.Combatables)
             {
                 if (combatable == Char) continue;
                 if (FactionValidator.GetRelation(Char.Faction, combatable.Faction) != FactionRelation.Hostile) continue;

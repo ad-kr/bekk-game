@@ -6,8 +6,7 @@ namespace ADKR.Game
 {
     public partial class Floater : Human
     {
-
-        private static readonly List<Floater> _floaters = new();
+        // private static readonly List<Floater> _floaters = new();
 
         private Vector2 _startingPosition;
 
@@ -15,7 +14,7 @@ namespace ADKR.Game
         {
             base._Ready();
 
-            _floaters.Add(this);
+            World.Floaters.Add(this);
             _startingPosition = Position;
 
             RandomizeSprite();
@@ -26,7 +25,7 @@ namespace ADKR.Game
         public static async void SetAllFree()
         {
 
-            _floaters.ForEach(floater =>
+            World.Floaters.ForEach(floater =>
             {
                 floater.Position = floater._startingPosition;
                 floater.State = new FloaterEmptyState();
@@ -34,7 +33,7 @@ namespace ADKR.Game
 
             await Game.Instance.ToSignal(Game.Instance.GetTree().CreateTimer(1f), "timeout");
 
-            _floaters.ForEach(floater =>
+            World.Floaters.ForEach(floater =>
             {
                 floater.State = new FloaterFreeState();
             });

@@ -74,7 +74,7 @@ namespace ADKR.Game
         {
             base.Die();
             Position = Respawn.Instance.Position;
-            Combatables.Add(this);
+            World.Combatables.Add(this);
             Health = MaxHealth;
 
             await ToSignal(GetTree().CreateTimer(0.5f), "timeout");

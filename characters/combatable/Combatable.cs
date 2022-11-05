@@ -6,7 +6,7 @@ namespace ADKR.Game
 {
     public abstract partial class Combatable : Character
     {
-        public static List<Combatable> Combatables { get; set; } = new();
+        // public static List<Combatable> World.Combatables { get; set; } = new();
 
         private float _health = 100f;
         public float Health
@@ -25,26 +25,26 @@ namespace ADKR.Game
         public bool IsDead { get => Health <= 0f; }
 
         public Faction Faction { get; set; }
-        
+
         public bool Invincible { get; set; } = false;
 
         public override void _Ready()
         {
             base._Ready();
-            Combatables.Add(this);
+            World.Combatables.Add(this);
         }
 
         public virtual void OnHealthChange(float health, float prevHealth) { }
 
         public virtual void Die()
         {
-            Combatables.Remove(this);
+            World.Combatables.Remove(this);
         }
 
         public override void _ExitTree()
         {
             base._ExitTree();
-            Combatables.Remove(this);
+            World.Combatables.Remove(this);
         }
 
     }
