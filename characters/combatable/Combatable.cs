@@ -31,7 +31,7 @@ namespace ADKR.Game
         public override void _Ready()
         {
             base._Ready();
-            World.Combatables.Add(this);
+            World.Combatables?.Add(this);
         }
 
         public virtual void OnHealthChange(float health, float prevHealth) { }
