@@ -19,7 +19,6 @@ script = ExtResource("1_16dhy")
 metadata/_edit_horizontal_guides_ = [198.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,7 +31,6 @@ grow_vertical = 2
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 101.0
@@ -46,7 +44,6 @@ text = "[center][color=#FF69F8]@[/color] Bytt utseende"
 scroll_active = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = -51.0

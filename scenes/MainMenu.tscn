@@ -1,10 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtyok4h3baxtx"]
+[gd_scene load_steps=11 format=3 uid="uid://dtyok4h3baxtx"]
 
 [ext_resource type="Script" path="res://scenes/MainMenu.cs" id="1_m6il4"]
 [ext_resource type="FontFile" uid="uid://jvr7qgaeb1ho" path="res://fonts/OpenSansPXModified.ttf" id="2_8jsln"]
+[ext_resource type="Texture2D" uid="uid://coa82pje5jk1u" path="res://scenes/bekkpunk_top.png" id="3_j6v6y"]
+[ext_resource type="Texture2D" uid="uid://deormr6wn3u2a" path="res://scenes/bekkpunk_bottom.png" id="3_jrx5o"]
+[ext_resource type="Shader" path="res://shaders/Glitch.gdshader" id="4_5jbxa"]
+[ext_resource type="Texture2D" uid="uid://cb3sp7pkgi5wv" path="res://scenes/bekkpunk2039.png" id="6_x4kxp"]
 
 [sub_resource type="Theme" id="Theme_b8mcw"]
 default_font = ExtResource("2_8jsln")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iktlq"]
+shader = ExtResource("4_5jbxa")
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.3
+shader_parameter/shake_power = 0.04
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2b28w"]
+shader = ExtResource("4_5jbxa")
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.397
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.06
+shader_parameter/shake_speed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_il1pn"]
+shader = ExtResource("4_5jbxa")
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.276
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.042
+shader_parameter/shake_speed = 5.0
 
 [node name="MainMenu" type="Control"]
 texture_filter = 1
@@ -37,3 +65,21 @@ bbcode_enabled = true
 text = "[center]Trykk [color=#40E2A0]©[/color] for å starte spillet."
 fit_content_height = true
 scroll_active = false
+
+[node name="BekkpunkBottom" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_iktlq")
+position = Vector2(240, 120.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_jrx5o")
+
+[node name="BekkpunkTop" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2b28w")
+position = Vector2(240, 120)
+scale = Vector2(1.5, 1.5)
+z_index = 1
+texture = ExtResource("3_j6v6y")
+
+[node name="Bekkpunk2039" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_il1pn")
+position = Vector2(317, 145)
+texture = ExtResource("6_x4kxp")
