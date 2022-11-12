@@ -59,12 +59,12 @@ namespace ADKR.Game
             float printDuration = Instance._label.Text.Length / PrintSpeed;
 
             Tween tween = Instance.CreateTween();
-            tween.TweenProperty(Instance._label, "visible_ratio", 1f, printDuration);
+            tween.TweenProperty(Instance._label, "visible_ratio", 0.8f, printDuration);
 
             await Instance.ToSignal(tween, "finished");
 
-            float delay = Instance._label.Text.Length * 0.080f;
-            delay = Mathf.Max(delay, 1.4f);
+            float delay = Instance._label.Text.Length * 0.060f;
+            delay = Mathf.Max(delay, 1.2f);
 
             await Instance.ToSignal(Instance.GetTree().CreateTimer(delay), "timeout");
 
