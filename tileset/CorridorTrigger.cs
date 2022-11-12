@@ -31,36 +31,37 @@ namespace ADKR.Game
 
             await Game.Wait(1f);
             DialogueBox.Talk(ShowStations, new string[] {
-                "Hmm, noen la igjen et notat...",
-                "...fra Olav?",
+                "Hmm, noen la igjen et notat... fra Olav?",
                 "...Leser du dette, frykter jeg at det allerede er for sent...",
-                "Det var i denne bygningen at Bekk pleide å holde til.",
-                "Det var en tid med kontorer fulle av dyktige konsulenter, uvitne om hvilken fremtid som ventet dem.",
-                "De bygget løsninger som forbedret samfunnet, skapte verdi for kundene sine, og bygget prisvinnende produkter ingen hadde sett maken til.",
-                "Men det var aldri nok. Kundene ville ha mer...",
-                "Mer smidighet",
-                "...større logo...",
-                "...og blockchain teknologi.",
-                "Vi oppsøkte kunstig intelligens.",
-                "Først Copilot...",
-                "...så Dall.e",
-                "Alt gikk så sømløst i starten, kundene var storfornøyde, pengene dalte ned.",
-                "Men det viste seg å bare være begynnelsen.",
-                "Automatiserte kodemaskiner, forretnings-androider, ja til og med AI-drevne designere. Vi trengte bare å lene oss tilbake og se at arbeidet ble gjort.",
-                "Men maskinene ble for smarte. De begynte å se på konsulentene som en hindring. En hindring for deres effektivitet, og ikke minst, en hindring for veksten til Bekk.",
-                "Enten det, eller så var det å kvitte seg med oss bare planen til å begynne med.",
-                "Jeg skriver dette som et siste forsøk på å redde det som gjenstår.",
-                "Du som leser dette er Bekk sitt aller siste håp.",
-                "Til høyre for for deg skal det stå tre kryokamre",
-                "I disse har jeg fryst ned de dyktigste konsulentene fra teknologi, design og BMC",
-                "Hvis du klarer å frigjøre dem, har vi kanskje fortsatt en sjanse for en ny start",
-                "For å gjøre dette må du først deaktivere kontroll-stasjonene."
+                // "Det var i denne bygningen at Bekk pleide å holde til.",
+                // "Det var en tid med kontorer fulle av dyktige konsulenter, uvitne om hvilken fremtid som ventet dem.",
+                // "De bygget løsninger som forbedret samfunnet, skapte verdi for kundene sine, og bygget prisvinnende produkter ingen hadde sett maken til.",
+                // "Men det var aldri nok. Kundene ville ha mer...",
+                // "Mer smidighet",
+                // "...større logo...",
+                // "...og blockchain teknologi.",
+                // "Vi oppsøkte kunstig intelligens.",
+                // "Først Copilot...",
+                // "...så Dall.e",
+                // "Alt gikk så sømløst i starten, kundene var storfornøyde, pengene dalte ned.",
+                // "Men det viste seg å bare være begynnelsen.",
+                // "Automatiserte kodemaskiner, forretnings-androider, ja til og med AI-drevne designere. Vi trengte bare å lene oss tilbake og se at arbeidet ble gjort.",
+                // "Men maskinene ble for smarte. De begynte å se på konsulentene som en hindring. En hindring for deres effektivitet, og ikke minst, en hindring for veksten til Bekk.",
+                // "Enten det, eller så var det å kvitte seg med oss bare planen til å begynne med.",
+                // "Jeg skriver dette som et siste forsøk på å redde det som gjenstår.",
+                // "Du som leser dette er Bekk sitt aller siste håp.",
+                "Skuret ble tatt over av onde roboter.",
+                // "Jeg skriver dette som et siste forsøk på å redde det som gjenstår.",
+                "Til høyre for for deg skal det stå tre kryokamre. I disse har jeg fryst ned konsulentene våre.",
+                // "I disse har jeg fryst ned de dyktigste konsulentene fra teknologi, design og BMC",
+                // "Hvis du klarer å frigjøre dem, har vi kanskje fortsatt en sjanse for en ny start",
+                "For å frigjøre dem må du først deaktivere kontroll-stasjonene."
             });
         }
 
         private async void ShowStations()
         {
-            await Game.Wait(1f);
+            await Game.Wait(0.6f);
             string[] strings = new[]{
                 $"Du kan finne stasjonene i {World.Stations[0].Name}",
                 $"{World.Stations[1].Name}...",
@@ -112,8 +113,7 @@ namespace ADKR.Game
             await Game.Wait(2f);
 
             DialogueBox.Talk(GiveWeapon, new string[] {
-                "Dette kommer ikke til å være en enkel oppgave. Du er advart.",
-                "Jeg la igjen et brekkjern for å hjelpe deg, du kommer til å trenge det.",
+                "Jeg la igjen et brekkjern for å hjelpe deg å bekjempe robotene, du kommer til å trenge det.",
             });
         }
 
